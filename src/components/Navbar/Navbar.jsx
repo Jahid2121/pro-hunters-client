@@ -1,11 +1,13 @@
 import NavItems from "./NavItems";
 import search from "../../assets/Icons/Frame 37.svg"
+import Footer from "../Footer/Footer";
 
 
 
 
 const Navbar = ({children}) => {
   return (
+   <>
     <div className="drawer font-poppins">
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
@@ -59,6 +61,10 @@ const Navbar = ({children}) => {
         </ul>
       </div>
     </div>
+    
+    {/* footer section */}
+    <Footer />
+    </>
   );
 };
 

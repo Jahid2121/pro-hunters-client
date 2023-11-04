@@ -2,7 +2,7 @@ import {
     Navigate,
     createBrowserRouter,
   } from "react-router-dom";
-import Main from "../LayOut/Main";
+import MainLayout from "../LayOut/MainLayout";
 import Home from "../Pages/Home/Home";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 
@@ -10,7 +10,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <Main ></Main>,
+      element: <MainLayout ></MainLayout>,
       children: [
         {
             path: "/",
@@ -25,8 +25,15 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
     },
     {
         path: "/dashboard",
-        element: <Dashboard ></Dashboard>
-    }
+        element: <Dashboard ></Dashboard>,
+        children: [
+            {
+                path: "/dashboard/Dasha",
+                element: <div>Pasha</div>
+            }
+        ]
+    },
+    
   ]);
 
 
