@@ -5,12 +5,14 @@ import {
 import MainLayout from "../LayOut/MainLayout";
 import Home from "../Pages/Home/Home";
 import Dashboard from "../Pages/Dashboard/Dashboard";
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 
 
   const router = createBrowserRouter([
     {
       path: "/",
       element: <MainLayout ></MainLayout>,
+      errorElement: <ErrorPage />,
       children: [
         {
             path: "/",

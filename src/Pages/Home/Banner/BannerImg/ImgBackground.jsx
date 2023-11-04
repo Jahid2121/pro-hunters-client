@@ -3,7 +3,7 @@ const ImgBackground = () => {
   return (
     <div className="">
       <div className="h-[305px] relative w-[305px] bg-customOrange rounded-full">
-        <img src={bannerImg} alt="" />
+        <img className="pt-6" src={bannerImg} alt="" />
       </div>
         
       
