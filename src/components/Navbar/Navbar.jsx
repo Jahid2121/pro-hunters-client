@@ -32,7 +32,7 @@ const Navbar = ({children}) => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 text-xl font-bold text-customOrange mx-2">Pr <span><img src={search} alt="" /></span> Hunters</div>
+          <div className="flex-1 pl-14 px-2 text-xl font-bold text-customOrange mx-2">Pr <span><img src={search} alt="" /></span> Hunters</div>
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal">
               {/* Navbar menu content here */}

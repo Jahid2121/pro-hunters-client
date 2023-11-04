@@ -1,8 +1,10 @@
+import ImgBackground from "./ImgBackground";
 
 const BannerImg = () => {
   return (
     <div>
-    <h2>  Welcome to BannerImg </h2>
+    <img src="" alt="" />
+    <ImgBackground />
     </div>
   );
 };

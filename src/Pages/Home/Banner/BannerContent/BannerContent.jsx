@@ -1,10 +1,10 @@
 const BannerContent = () => {
   return (
-    <div className="ml-10">
-      <h2>Find the job of your Dreams</h2>
-      <p>
-        Find You New Job Today! New Job Postings Everyday just for you, browse
-        the job you want and apply wherever you want
+    <div className="ml-10 mt-3">
+      <h2 className="text-5xl mb-5 font-bold">Find the job of <br /> your <span className="text-customOrange">Dreams</span></h2>
+      <p className="text-customGray mb-3">
+        Find You New Job Today! New Job Postings Everyday <br /> just for you, browse
+        the job you want and apply <br /> wherever you want
       </p>
 
       <div className="rounded-full pl-3  bg-white">

@@ -7,7 +7,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        customOrange: "#F2994A"
+        customOrange: "#F2994A",
+        customGray: "#4F4F4F"
       },
       fontFamily: {
         poppins: "'Poppins', sans-serif;",
