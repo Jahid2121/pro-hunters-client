@@ -1,4 +1,5 @@
 import {
+    Navigate,
     createBrowserRouter,
   } from "react-router-dom";
 import Main from "../LayOut/Main";
@@ -13,8 +14,12 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
       children: [
         {
             path: "/",
-            element: <Home></Home>
+            element: <Navigate to="/home" replace />
         },
+        {
+            path: "/home",
+            element: <Home></Home>
+        }
         
       ]
     },

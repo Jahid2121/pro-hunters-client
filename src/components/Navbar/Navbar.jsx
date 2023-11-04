@@ -1,5 +1,5 @@
 import NavItems from "./NavItems";
-
+import search from "../../assets/Icons/Frame 37.svg"
 
 
 
@@ -10,7 +10,7 @@ const Navbar = ({children}) => {
       <input id="my-drawer-3" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content flex flex-col">
         {/* Navbar */}
-        <div className="w-full navbar bg-base-300">
+        <div className="w-full navbar ">
           <div className="flex-none lg:hidden">
             <label
               htmlFor="my-drawer-3"
@@ -32,7 +32,7 @@ const Navbar = ({children}) => {
               </svg>
             </label>
           </div>
-          <div className="flex-1 px-2 mx-2">ProHunters</div>
+          <div className="flex-1 px-2 text-xl font-bold text-customOrange mx-2">Pr <span><img src={search} alt="" /></span> Hunters</div>
           <div className="flex-none hidden lg:block">
             <ul className="menu menu-horizontal">
               {/* Navbar menu content here */}

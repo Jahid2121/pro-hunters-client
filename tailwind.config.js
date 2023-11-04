@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      colors: {
+        customOrange: "#F2994A"
+      },
       fontFamily: {
         poppins: "'Poppins', sans-serif;",
       }

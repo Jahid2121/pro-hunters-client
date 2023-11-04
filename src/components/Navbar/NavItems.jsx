@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-
+import "../Navbar/NavItems.css"
 const NavItems = () => {
   const navlinks = ["home", "blogs"];
   return (
@@ -9,11 +9,9 @@ const NavItems = () => {
         <li key={link}>
           <NavLink
             to={`/${link}`}
-            className={({ isActive, isPending, isTransitioning }) =>
+            className={({ isActive }) =>
               [
-                isPending ? "pending" : "",
-                isActive ? "active" : "",
-                isTransitioning ? "transitioning" : "",
+                isActive ? "custom" : "",
               ].join(" ")
             }
           >
