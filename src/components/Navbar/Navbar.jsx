@@ -1,11 +1,24 @@
 import NavItems from "./NavItems";
 import search from "../../assets/Icons/Frame 37.svg"
 import Footer from "../Footer/Footer";
+import UseAuth from "../../hooks/UseAuth";
+import { Link, NavLink } from "react-router-dom";
+import auth from "../../config/firebase.cofig";
 
 
 
 
 const Navbar = ({children}) => {
+  const {user,logOut} = UseAuth()
+
+  const handleLogOut = () => {
+    logOut(auth)
+    .then(() => {})
+    .catch(error => {
+      console.error(error);
+    })
+  }
+
   return (
    <>
     <div className="drawer font-poppins">
@@ -39,6 +52,9 @@ const Navbar = ({children}) => {
             <ul className="menu menu-horizontal">
               {/* Navbar menu content here */}
               <NavItems />
+              {
+                user ? <button onClick={handleLogOut} className="items-center flex ">LogOut</button> : <Link to="/login" className="items-center flex ">Login</Link>
+              }
             </ul>
           </div>
         </div>

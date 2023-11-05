@@ -38,7 +38,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue={"jahid@gmail.com"}
+                defaultValue={"jahidsarkar2121@gmail.com"}
                 placeholder="email"
                 className="input input-bordered"
                 required
