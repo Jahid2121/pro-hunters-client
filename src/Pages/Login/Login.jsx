@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg"
 
 const Login = () => {
@@ -51,6 +52,7 @@ const Login = () => {
             </div>
             <div className="form-control mt-6">
               <input className="btn bg-customOrange border-0 text-white" type="submit" value="Login" />
+              <h3>New to be hunt? register here <Link className="text-customOrange font-medium hover:underline " to="/register">Register</Link></h3>
             </div>
           </form>
         </div>
