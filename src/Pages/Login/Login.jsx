@@ -3,6 +3,10 @@ import img from "../../assets/Pictures/login.svg"
 const Login = () => {
     const handleLogin = e => {
         e.preventDefault()
+        const form = e.target 
+        const email = form.email.value;
+        const password = form.password.value 
+        console.log(email, password);
     }
 
   return (
@@ -20,6 +24,8 @@ const Login = () => {
               </label>
               <input
                 type="email"
+                name="email"
+                defaultValue={"jahid@gmail.com"}
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -31,6 +37,8 @@ const Login = () => {
               </label>
               <input
                 type="password"
+                defaultValue={123456}
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
                 required
