@@ -5,15 +5,27 @@ const Tabu = () => {
    <>
      <Tabs>
     <TabList>
-      <Tab>Title 1</Tab>
-      <Tab>Title 2</Tab>
+      <Tab>All Jobs</Tab>
+      <Tab>Onsite</Tab>
+      <Tab>Remote</Tab>
+      <Tab>Hybrid</Tab>
+      <Tab>Part Time</Tab>
     </TabList>
 
     <TabPanel>
-      <h2>Any content 1</h2>
+      <h2>All Jobs</h2>
     </TabPanel>
     <TabPanel>
-      <h2>Any content 2</h2>
+      <h2>Onsite</h2>
+    </TabPanel>
+    <TabPanel>
+      <h2>Remote</h2>
+    </TabPanel>
+    <TabPanel>
+      <h2>Hybrid</h2>
+    </TabPanel>
+    <TabPanel>
+      <h2>Part Time</h2>
     </TabPanel>
   </Tabs>
   </>
