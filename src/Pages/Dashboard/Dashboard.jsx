@@ -8,8 +8,14 @@ const Dashboard = () => {
     
     <div className="w-11/12 mx-auto">
       <Navbar>
+        <div>
+        <div className="flex-grow flex gap-20 justify-center">
         <DashBoardItems></DashBoardItems>
+        </div>
+        <div>
         <Outlet></Outlet>
+        </div>
+        </div>
       </Navbar>
     </div>
     </>
