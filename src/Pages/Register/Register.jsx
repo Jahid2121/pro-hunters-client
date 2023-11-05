@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg"
+import UseAuth from "../../hooks/UseAuth";
 const Register = () => {
+    const {newUser} = UseAuth()
 
     const handleRegister = e => {
         e.preventDefault()
@@ -8,6 +10,14 @@ const Register = () => {
         const email = form.email.value;
         const password = form.password.value 
         console.log(email, password);
+        newUser(email, password)
+        .then(result => {
+            const user = result.user;
+            console.log(user);
+        })
+        .catch(error => {
+            console.error(error);
+        })
     }
 
   return (
@@ -43,14 +53,14 @@ const Register = () => {
                 defaultValue=""
                 placeholder="name"
                 className="input input-bordered"
-                required
+                
               />
               <h2 className="my-2">Or give a link</h2>
               <input
                 type="text"
                 name="image"
-                defaultValue=""
-                placeholder="name"
+                defaultValue="https://i.ibb.co/j37x2DC/c05817991.jpg"
+                placeholder="photo URL"
                 className="input input-bordered"
                 required
               />
