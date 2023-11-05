@@ -6,6 +6,7 @@ import UseJobs from "../../../../hooks/UseJobs/UseJobs";
 import { useEffect, useState } from "react";
 import axios from "axios";
 const AllJob = ({active, jobCategory}) => {
+    console.log(jobCategory);
 
     const {isPending, isError, error, allJobs} = UseJobs()
     const [renderedJobs, setRenderedJobs] = useState()
@@ -14,7 +15,19 @@ const AllJob = ({active, jobCategory}) => {
             axios.get('http://localhost:5000/jobs?jobCategory=Remote')
             .then(data => setRenderedJobs(data.data))
         }
-    },[active])
+        else if(jobCategory === "Hybrid"){
+            axios.get('http://localhost:5000/jobs?jobCategory=Hybrid')
+            .then(data => setRenderedJobs(data.data))
+        }
+        else if(jobCategory === "Part-Time"){
+            axios.get('http://localhost:5000/jobs?jobCategory=Part-Time')
+            .then(data => setRenderedJobs(data.data))
+        }
+        else if(jobCategory === "On Site"){
+            axios.get('http://localhost:5000/jobs?jobCategory=On Site')
+            .then(data => setRenderedJobs(data.data))
+        }
+    },[active, jobCategory])
 
     if(isPending){
         return <Lottie className="w-20" animationData={Loading}></Lottie>
