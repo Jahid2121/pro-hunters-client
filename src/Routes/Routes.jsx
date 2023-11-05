@@ -6,6 +6,7 @@ import MainLayout from "../LayOut/MainLayout";
 import Home from "../Pages/Home/Home";
 import Dashboard from "../Pages/Dashboard/Dashboard";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import Login from "../Pages/Login/Login";
 
 
   const router = createBrowserRouter([
@@ -24,6 +25,10 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
         }
         
       ]
+    },
+    {
+      path: "/login",
+      element: <Login></Login>
     },
     {
         path: "/dashboard",
