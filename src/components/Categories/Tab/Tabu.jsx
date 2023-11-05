@@ -1,5 +1,6 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import AllJob from './AllJob/AllJob';
 const Tabu = () => {
   return (
    <>
@@ -13,7 +14,7 @@ const Tabu = () => {
     </TabList>
 
     <TabPanel>
-      <h2>All Jobs</h2>
+    <AllJob></AllJob>
     </TabPanel>
     <TabPanel>
       <h2>Onsite</h2>
