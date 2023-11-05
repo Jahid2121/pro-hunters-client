@@ -8,7 +8,7 @@ const UseJobs = () => {
          return res.json()
         }
     })
-  return {isPending, isError, error, data: allJob};
+  return {isPending, isError, error, allJob};
 };
 
 export default UseJobs;

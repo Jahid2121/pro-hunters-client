@@ -13,7 +13,7 @@ const AllJob = () => {
     //     .then(data => setAllJob(data))
     // },[])
 
-    const {isPending, isError, error, data: allJob} = UseJobs()
+    const {isPending, isError, error, allJob} = UseJobs()
 
     if(isPending){
         return <Lottie className="w-20" animationData={Loading}></Lottie>
@@ -24,7 +24,7 @@ const AllJob = () => {
     }
 
   return (
-    <div>
+    <div className="grid grid-cols-3 mx-auto gap-1">
     {allJob?.map(job => <Job key={job._id} job={job}></Job>)}
     
     </div>
