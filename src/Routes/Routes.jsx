@@ -37,7 +37,8 @@ import JobDetails from "../Pages/JobDetails/JobDetails";
         },
         {
           path: "/jobDetails/:id",
-          element: <JobDetails></JobDetails>
+          element: <JobDetails></JobDetails>,
+          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         
       ]
