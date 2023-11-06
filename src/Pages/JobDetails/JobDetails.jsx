@@ -23,7 +23,7 @@ const JobDetails = () => {
 
         <div>
         <div className="mt-8">
-        <Modal></Modal>
+        <Modal _id={_id}></Modal>
         </div>
         <p className="text-xs text-customGray">Application deadline: {applicationDeadline}</p>
         <p className="text-customOrange text-xs">Applicants : {jobApplicantsNumber}</p>
