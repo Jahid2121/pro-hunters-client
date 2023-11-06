@@ -1,5 +1,8 @@
+import { Link } from "react-router-dom";
+
 const Job = ({ job }) => {
   const {
+    _id,
     bannerUrl,
     jobTitle,
     loggedInUserName,
@@ -31,8 +34,8 @@ const Job = ({ job }) => {
         </a>
         <p className="text-gray-700 dark:text-gray-400">{salaryRange}</p>
         <p>Total Applicants : {jobApplicantsNumber}</p>
-        <a
-          href="#"
+        <Link
+          to={`/jobDetails/${_id}`}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customOrange focus:ring-4 focus:outline-none focus:ring-customOrange dark:bg-customOrange dark:hover:bg-customOrange dark:focus:ring-customOrange"
         >
           View Details
@@ -51,7 +54,7 @@ const Job = ({ job }) => {
               d="M1 5h12m0 0L9 1m4 4L9 9"
             />
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

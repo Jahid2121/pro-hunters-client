@@ -9,6 +9,7 @@ import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
+import JobDetails from "../Pages/JobDetails/JobDetails";
 
 
 
@@ -33,6 +34,10 @@ import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
         {
           path: "/register",
           element: <Register></Register>
+        },
+        {
+          path: "/jobDetails/:id",
+          element: <JobDetails></JobDetails>
         },
         
       ]
