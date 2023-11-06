@@ -1,7 +1,12 @@
 import axios from "axios";
 import "../AddProduct/AddProduct.css";
+import React, { useState } from "react";
+import DatePicker from "react-datepicker";
+
+import "react-datepicker/dist/react-datepicker.css";
 
 const AddProduct = () => {
+  const [startDate, setStartDate] = useState(new Date());
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -13,7 +18,7 @@ const AddProduct = () => {
     const responsibility = form.responsibility.value;
     const requirement = form.requirement.value;
     const jobPostingDate = form.jobPostingDate.value;
-    const Deadline = form.applicationDeadline.value;
+    // const Deadline = form.applicationDeadline.value;
     const jobApplicantsNumber = form.jobApplicantsNumber.value;
     const job = {
       bannerUrl: bannerPhoto,
@@ -29,9 +34,10 @@ const AddProduct = () => {
         }
       ],
       jobPostingDate: jobPostingDate,
-      applicationDeadline: Deadline,
+      applicationDeadline: startDate,
       jobApplicantsNumber: jobApplicantsNumber,
     };
+    console.log(job);
     axios.post("http://localhost:5000/jobs", job)
     .then(res => {
       console.log(res.data);
@@ -84,7 +90,7 @@ const AddProduct = () => {
             <span className="required label-text">Job Category</span>
           </label>
           <select name="category" className="input input-bordered" required>
-            <option value="Onsite">Onsite</option>
+            <option value="On Site">Onsite</option>
             <option value="Remote">Remote</option>
             <option value="Hybrid">Hybrid</option>
             <option value="Part time">Part time</option>
@@ -151,13 +157,11 @@ const AddProduct = () => {
           <label className="label">
             <span className="required label-text"> applicationDeadline</span>
           </label>
-          <input
-            required
-            placeholder="applicationDeadline"
-            name="applicationDeadline"
-            id=""
-            className="input input-bordered"
-          ></input>
+          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
+           
+          />
+
+         
         </div>
 
         <div className="form-control">

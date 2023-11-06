@@ -10,6 +10,8 @@ const Job = ({ job }) => {
     applicationDeadline,
     jobApplicantsNumber,
   } = job;
+
+  const shortendDeadline = applicationDeadline.slice(0, 10)
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
@@ -25,7 +27,7 @@ const Job = ({ job }) => {
             <p>Posted by : {loggedInUserName}</p>
             <p>{jobPostingDate}</p>
           </div>
-          <p>DeadLine : {applicationDeadline}</p>
+          <p>DeadLine : {shortendDeadline}</p>
         </a>
         <p className="text-gray-700 dark:text-gray-400">{salaryRange}</p>
         <p>Total Applicants : {jobApplicantsNumber}</p>
