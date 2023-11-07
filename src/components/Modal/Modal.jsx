@@ -56,7 +56,7 @@ const Modal = ({job}) => {
                 type="text"
                 name="name"
                 defaultValue={userName}
-                disabled
+                disa
                 className="input input-bordered"
                 required
               />

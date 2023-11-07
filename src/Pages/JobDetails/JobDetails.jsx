@@ -21,14 +21,17 @@ const JobDetails = () => {
     applicationDeadline,
     jobApplicantsNumber,
   } = job;
+  const currentDate = new Date()
 
+  const isDeadlineOver = applicationDeadline > currentDate
+  console.log(applicationDeadline, currentDate);
+  console.log(isDeadlineOver);
 
   //   handling modal visibility based on user
   const isUserJobOwner = loggedInUserName === userName;
-  console.log(isUserJobOwner);
   useEffect(() => {
     if(isUserJobOwner){
-        setError('You cannot apply for your own job')
+        setError("You can't apply")
     }
     else{
         setError('')
@@ -62,7 +65,7 @@ const JobDetails = () => {
                 {
                     !isUserJobOwner ? <Modal job={job} /> 
                     :
-                     <button disabled className="btn disabled bg-customOrange text-white">Apply Now</button>
+                     <button disabled className="btn disabled bg-customOrange text-white">{error}</button>
                 }
                 
             </div>

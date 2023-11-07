@@ -13,7 +13,6 @@ const Login = () => {
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
 
     setError("");
     setSuccess("");
@@ -47,7 +46,7 @@ const Login = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue={"jahidsarkar2121@gmail.com"}
+                defaultValue={"micro@soft.com"}
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -59,7 +58,7 @@ const Login = () => {
               </label>
               <input
                 type="password"
-                defaultValue={123456}
+                defaultValue={"micro@soft.com"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
