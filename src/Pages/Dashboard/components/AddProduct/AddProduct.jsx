@@ -9,7 +9,6 @@ import UseAuth from "../../../../hooks/UseAuth";
 const AddProduct = () => {
   const {logo, userName} = UseAuth()
   const [startDate, setStartDate] = useState(new Date());
-  // const mindates = new Date()
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,7 +21,7 @@ const AddProduct = () => {
     const responsibility = form.responsibility.value;
     const requirement = form.requirement.value;
     const jobPostingDate = form.jobPostingDate.value;
-    // const Deadline = form.applicationDeadline.value;
+    const Deadline = form.applicationDeadline.value;
     const jobApplicantsNumber = form.jobApplicantsNumber.value;
     const job = {
       bannerUrl: bannerPhoto,
@@ -39,7 +38,7 @@ const AddProduct = () => {
         }
       ],
       jobPostingDate: jobPostingDate,
-      applicationDeadline: startDate,
+      applicationDeadline: Deadline,
       jobApplicantsNumber: jobApplicantsNumber,
     };
     console.log(job);
@@ -184,10 +183,9 @@ const AddProduct = () => {
           </label>
           <DatePicker
            selected={startDate}
-           dateFormat="dd/MM/yyyy"
-           minDate={new Date()}
+           name="applicationDeadline"
+          //  minDate={new Date()}
             onChange={(date) => setStartDate(date)}
-            scrollableMonthYearDropdown
           />
 
          

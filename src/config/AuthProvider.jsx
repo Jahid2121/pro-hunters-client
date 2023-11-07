@@ -1,7 +1,6 @@
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
 import auth from "./firebase.cofig";
-import DatePicker from "react-datepicker";
 
 export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
@@ -9,8 +8,6 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [userName, setUserName ] = useState('')
     const [logo, setLogo] = useState('')
-    const [currentDate, setCurrentDate] = useState(new Date());
-    console.log(currentDate);
     const newUser = (email, passsword) => {
         setLoading(true)
         return createUserWithEmailAndPassword(auth, email, passsword)
@@ -24,10 +21,7 @@ const AuthProvider = ({children}) => {
         return signOut(auth)
     }
 
-    <DatePicker selected={currentDate} onChange={(date) => setCurrentDate(date)}
-    minDate={new Date()}
-    maxDate={new Date()}
-    />
+
 
     useEffect(() => {
         const unsubscribe =  onAuthStateChanged(auth, currentUser => {
@@ -52,7 +46,6 @@ const AuthProvider = ({children}) => {
         loading,
         userName,
         logo,
-        currentDate
     }
 
   return (

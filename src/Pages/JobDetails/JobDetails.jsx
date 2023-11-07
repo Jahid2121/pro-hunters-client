@@ -4,8 +4,18 @@ import UseAuth from "../../hooks/UseAuth";
 import { useEffect, useState } from "react";
 
 const JobDetails = () => {
+  function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  }
+
+  const currentDate = new Date();
+  const formattedDate = formatDate(currentDate);
+  console.log(formattedDate); 
+
   const [error, setError] = useState("");
-  console.log(error);
   const { userName } = UseAuth();
   const job = useLoaderData();
   const {
@@ -21,22 +31,24 @@ const JobDetails = () => {
     applicationDeadline,
     jobApplicantsNumber,
   } = job;
-  const currentDate = new Date()
 
-  const isDeadlineOver = applicationDeadline > currentDate
-  console.log(applicationDeadline, currentDate);
-  console.log(isDeadlineOver);
+  const isDeadlineOver = applicationDeadline < formattedDate
+
+  
+  console.log("deadline", applicationDeadline);
+  console.log('deadline over', isDeadlineOver);
+  // startdate console = Tue Nov 07 2023 18:31:35 GMT+0600 (Bangladesh Standard Time)
+  // applicationDeadline console =
 
   //   handling modal visibility based on user
   const isUserJobOwner = loggedInUserName === userName;
   useEffect(() => {
-    if(isUserJobOwner){
-        setError("You can't apply")
+    if (isUserJobOwner) {
+      setError("You can't apply");
+    } else {
+      setError("");
     }
-    else{
-        setError('')
-    }
-  },[isUserJobOwner])
+  }, [isUserJobOwner]);
 
   return (
     <div>
@@ -46,11 +58,7 @@ const JobDetails = () => {
       <div className=" min-h-screen flex flex-col mx-auto top-16 w-[900px] h-[1000px]">
         <div className="flex ">
           <div className="flex flex-grow relative">
-            <img
-              className="w-32  h-32"
-              src={logoImage}
-              alt=""
-            />
+            <img className="w-32  h-32" src={logoImage} alt="" />
             <p className="mt-5  left-32 absolute rounded-lg text-customOrange p-1 bg-orange-100">
               {jobCategory}
             </p>
@@ -62,12 +70,16 @@ const JobDetails = () => {
 
           <div>
             <div className="mt-8">
-                {
-                    !isUserJobOwner ? <Modal job={job} /> 
-                    :
-                     <button disabled className="btn disabled bg-customOrange text-white">{error}</button>
-                }
-                
+              {!isUserJobOwner ? (
+                <Modal job={job} />
+              ) : (
+                <button
+                  disabled
+                  className="btn disabled bg-customOrange text-white"
+                >
+                  {error}
+                </button>
+              )}
             </div>
             <p className="text-xs text-customGray">
               Application deadline: {applicationDeadline}
