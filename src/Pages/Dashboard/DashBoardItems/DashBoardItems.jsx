@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../DashBoardItems/NavDesign.css"
 const DashBoardItems = () => {
-  const navItems = ["Add Product", "My Jobs", "Applied Jobs"];
+  const navItems = ["Add Job", "My Jobs", "Applied Jobs"];
   return (
     <>
       {navItems.map((link) => (

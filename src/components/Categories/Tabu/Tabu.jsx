@@ -4,7 +4,6 @@ import { useState } from 'react';
 import AllJob from './AllJob/AllJob';
 const Tabu = () => {
     const [active, setActive] = useState(0)
-    console.log(active);
     const handleTabChange = index => {
         setActive(index)
     }

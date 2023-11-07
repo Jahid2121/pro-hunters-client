@@ -57,7 +57,7 @@ import AllJobs from "../Pages/AllJobs/AllJobs";
         element: <Dashboard ></Dashboard>,
         children: [
           {
-            path: "add product",
+            path: "add job",
             element: <AddProduct></AddProduct>
           },
           {

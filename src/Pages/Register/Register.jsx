@@ -1,30 +1,50 @@
 import { Link } from "react-router-dom";
-import img from "../../assets/Pictures/login.svg"
+import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
+import { useState } from "react";
 const Register = () => {
-    const {newUser} = UseAuth()
+  const { newUser } = UseAuth();
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  
+  
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
 
-    const handleRegister = e => {
-        e.preventDefault()
-        const form = e.target 
-        const email = form.email.value;
-        const password = form.password.value 
-        console.log(email, password);
-        newUser(email, password)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error => {
-            console.error(error);
-        })
+    setError("");
+    setSuccess("");
+
+    if (password.length < 6) {
+      setError("password should be longer than 6 characters");
+      return;
+    } else if (!/[A-Z]/.test(password)) {
+      setError("Include  at least one Uppercase letter");
+      return;
+    } else if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
+      setError("Must include a special character");
+      return;
     }
+
+    newUser(email, password)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        setSuccess("User created successfully");
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
 
   return (
     <div className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col-reverse gap-8 lg:flex-row">
         <div className="mt-36">
-         <img className="w-[500px] " src={img} alt="" />
+          <img className="w-[500px] " src={img} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
@@ -53,7 +73,6 @@ const Register = () => {
                 defaultValue=""
                 placeholder="name"
                 className="input input-bordered"
-                
               />
               <h2 className="my-2">Or give a link</h2>
               <input
@@ -92,9 +111,23 @@ const Register = () => {
               />
             </div>
             <div className="form-control mt-6">
-              <input className="btn bg-customOrange border-0 text-white" type="submit" value="Register" />
-              <h3>Already a User? <Link className="text-customOrange hover:underline font-medium" to="/login">Login</Link></h3> 
-            </div> 
+              <input
+                className="btn bg-customOrange border-0 text-white"
+                type="submit"
+                value="Register"
+              />
+              <h3>
+                Already a User?{" "}
+                <Link
+                  className="text-customOrange hover:underline font-medium"
+                  to="/login"
+                >
+                  Login
+                </Link>
+              </h3>
+            </div>
+            {error && <p className="text-red-950 flex items-center">{error}</p>}
+            {success && <p className="text-green-800">{success}</p>}
           </form>
         </div>
       </div>

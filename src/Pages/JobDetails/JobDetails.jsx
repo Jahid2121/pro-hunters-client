@@ -24,7 +24,6 @@ const JobDetails = () => {
 
   //   handling modal visibility based on user
   const isUserJobOwner = loggedInUserName === currentUser;
-
   useEffect(() => {
     if(isUserJobOwner){
         setError('You cannot apply for your own job')
