@@ -1,6 +1,6 @@
 
 const AppliedJob = ({appliedjob}) => {
-    
+    const {_id, name, email, resume} = appliedjob;
   return (
     <div className="overflow-x-auto">
   <table className="table">
@@ -34,7 +34,7 @@ const AppliedJob = ({appliedjob}) => {
               </div>
             </div>
             <div>
-              <div className="font-bold">Hart </div>
+              <div className="font-bold">{name} </div>
               <div className="text-sm opacity-50">United States</div>
             </div>
           </div>

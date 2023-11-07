@@ -11,6 +11,7 @@ import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
+import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 
 
 
@@ -59,7 +60,7 @@ import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
           },
           {
             path: "appliedJobs",
-            element: <AppliedJobs />,
+            element: <ProtectedRoutes><AppliedJobs /></ProtectedRoutes>,
           }
         ]
     },
