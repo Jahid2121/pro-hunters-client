@@ -5,31 +5,31 @@ import axios from "axios";
 import SingleJob from "../../components/SingleJob/SingleJob";
 
 const AllJobs = () => {
-    const [filter, setFilter] = useState("all")
+    const [filter, setFilter] = useState()
     const {isError, error, allJobs} = UseJobs()
-    console.log(allJobs);
     console.log(filter);
 
-    const [display, setDisplay] = useState()
+    const [display, setDisplay] = useState(null)
     
 
     useEffect(() => {
-        if(filter === "Remote"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Remote')
+        if(filter === "remote"){
+            axios.get('http://localhost:5000/jobs?jobCategory=remote')
             .then(data => setDisplay(data.data))
         }
-        else if(filter === "Hybrid"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Hybrid')
+        else if(filter === "hybrid"){
+            axios.get('http://localhost:5000/jobs?jobCategory=hybrid')
             .then(data => setDisplay(data.data))
         }
-        else if(filter === "Part-Time"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Part-Time')
+        else if(filter === "part time" || filter === "parttime"){
+            axios.get('http://localhost:5000/jobs?jobCategory=part time')
             .then(data => setDisplay(data.data))
         }
-        else if(filter === "On Site"){
-            axios.get('http://localhost:5000/jobs?jobCategory=On Site')
+        else if(filter === "on site" || filter === "onsite"){
+            axios.get('http://localhost:5000/jobs?jobCategory=on site')
             .then(data => setDisplay(data.data))
         }
+
     },[filter ])
 
 

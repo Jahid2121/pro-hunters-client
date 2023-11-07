@@ -46,8 +46,8 @@ const SingleJob = ({ job }) => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-bold">{name} </div>
-                  <div className="text-sm opacity-50">United States</div>
+                  <div className="font-bold">{loggedInUserName} </div>
+                  <div className="text-sm opacity-50">{jobCategory}</div>
                 </div>
             </td>
             <td>

@@ -1,8 +1,8 @@
 
 const Filter = ({filter, setFilter}) => {
     const handleFilter = e => {
-        const selectedValue = e.target.value;
-        setFilter(selectedValue.toLowerCase())
+        const selectedValue = e.target.value.toLowerCase();
+        setFilter(selectedValue)
     }
   return (
     <div>
