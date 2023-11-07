@@ -9,7 +9,7 @@ const Companies = () => {
   return (
     <div>
     <h2 className="text-center text-2xl mb-8 mt-16">Join Most Well Known <span className="text-customOrange">Companies</span> Around The World</h2>
-      <Marquee >
+      <Marquee pauseOnHover>
     <div className="image flex">
 
         <img src={img1} alt="" />

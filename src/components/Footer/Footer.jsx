@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import search from "../../assets/Icons/Frame 37.svg";
 
 const Footer = () => {
@@ -22,45 +23,47 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
+                <Link to="/dashboard">Dashboard</Link>
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="https://flowbite.com/" className="hover:underline">
-                    Flowbite
-                  </a>
+                  <Link to="/dashboard/add product" className="hover:underline hover:text-customOrange">
+                    Add Product
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
-                    Tailwind CSS
-                  </a>
+                <li className="mb-4">
+                  <Link to="/dashboard/my Jobs" className="hover:underline hover:text-customOrange">
+                    My Jobs
+                  </Link>
                 </li>
+                <li className="mb-4">
+                  <Link to="/dashboard/applied jobs" className="hover:underline hover:text-customOrange">
+                    Applied Jobs
+                  </Link>
+                </li>
+                
               </ul>
             </div>
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Follow us
+                import Links
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a
-                    href="https://github.com/themesberg/flowbite"
-                    className="hover:underline "
+                  <Link to="/home"
+                    className="hover:underline hover:text-customOrange "
                   >
-                    Github
-                  </a>
+                    Home
+                  </Link>
                 </li>
-                <li>
-                  <a
-                    href="https://discord.gg/4eeurUVvTy"
-                    className="hover:underline"
+                <li className="mb-4">
+                  <Link to="/blogs"
+                    className="hover:underline hover:text-customOrange "
                   >
-                    Discord
-                  </a>
+                    Blogs
+                  </Link>
                 </li>
+
               </ul>
             </div>
             <div>
@@ -69,13 +72,13 @@ const Footer = () => {
               </h2>
               <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline hover:text-customOrange">
                     pro@hunter.com
                   </a>
                 </li>
                 <li className="mb-1">call: 01711911939</li>
                 <li>
-                  <a href="#" className="hover:underline">
+                  <a href="#" className="hover:underline hover:text-customOrange">
                     House No. 123, Road No. 45 <br />
                     Gulshan 2, Dhaka 1212 <br />
                     Bangladesh 
@@ -89,7 +92,7 @@ const Footer = () => {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023 -{" "}
-            <a href="https://example.com/" className="hover:underline">
+            <a href="https://example.com/" className="hover:underline hover:text-customOrange">
               ProHunters™
             </a>
             . All Rights Reserved.
