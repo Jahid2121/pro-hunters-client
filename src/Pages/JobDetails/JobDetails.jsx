@@ -59,7 +59,7 @@ const JobDetails = () => {
           <div>
             <div className="mt-8">
                 {
-                    !isUserJobOwner && <Modal _id={_id} />
+                    !isUserJobOwner && <Modal job={job} />
                 }
                 
             </div>

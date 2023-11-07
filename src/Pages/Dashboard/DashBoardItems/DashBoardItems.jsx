@@ -1,11 +1,20 @@
 import { NavLink } from "react-router-dom";
+import "../DashBoardItems/NavDesign.css"
 const DashBoardItems = () => {
+  const navItems = ["Add Product", "My Jobs", "Applied Jobs"];
   return (
     <>
-    <NavLink to="/dashboard/test">Test</NavLink>
-    <NavLink to="/dashboard/add product">Add Product</NavLink>
-    <NavLink to="/dashboard/appliedJobs">Applied Jobs</NavLink>
-    <NavLink to="/dashboard/test">Test</NavLink>
+      {navItems.map((link) => (
+          <NavLink key={link}
+            to={`/dashboard/${link}`}
+            className={({ isActive }) =>
+             isActive ? "navItems" : ""
+            }
+          >
+            {link}
+          </NavLink>
+          
+      ))}
     </>
   );
 };

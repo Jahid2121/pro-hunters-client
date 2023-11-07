@@ -1,7 +1,18 @@
 import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
 
-const Modal = ({_id}) => {
+const Modal = ({job}) => {
+  const {
+    _id,
+    jobTitle,
+    loggedInUserName,
+    jobCategory,
+    salaryRange,
+    jobDescription,
+    jobPostingDate,
+    applicationDeadline,
+    jobApplicantsNumber,
+  } = job;
     const {user} = UseAuth()
     const handleApply = e => {
         e.preventDefault()

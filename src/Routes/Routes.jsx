@@ -12,6 +12,7 @@ import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
+import MyJobs from "../Pages/MyJobs/MyJobs";
 
 
 
@@ -59,8 +60,13 @@ import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
             element: <h2>Test</h2>
           },
           {
-            path: "appliedJobs",
+            path: "applied Jobs",
             element: <ProtectedRoutes><AppliedJobs /></ProtectedRoutes>,
+          },
+          {
+            path: "my Jobs",
+            element: <ProtectedRoutes><MyJobs></MyJobs></ProtectedRoutes>,
+            loader: () =>  fetch("http://localhost:5000/jobs?loggedInUserName=John%20Doe")
           }
         ]
     },
