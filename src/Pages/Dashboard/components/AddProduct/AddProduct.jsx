@@ -1,6 +1,6 @@
 import axios from "axios";
 import "../AddProduct/AddProduct.css";
-import React, { useState } from "react";
+import  { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";

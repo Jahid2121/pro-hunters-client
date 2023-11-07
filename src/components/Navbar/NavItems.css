@@ -4,3 +4,13 @@
     font-size: 16px;
 
 }
+
+.custom::before{
+    content: "|";
+    margin-right: 20px;
+}
+.custom::after{
+    content: "|";
+    margin-right: 20px;
+    margin-left: 20px;
+}

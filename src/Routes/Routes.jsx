@@ -13,6 +13,7 @@ import JobDetails from "../Pages/JobDetails/JobDetails";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 import MyJobs from "../Pages/MyJobs/MyJobs";
+import AllJobs from "../Pages/AllJobs/AllJobs";
 
 
 
@@ -67,6 +68,10 @@ import MyJobs from "../Pages/MyJobs/MyJobs";
             path: "my Jobs",
             element: <ProtectedRoutes><MyJobs></MyJobs></ProtectedRoutes>,
             loader: () =>  fetch("http://localhost:5000/jobs?loggedInUserName=John%20Doe")
+          },
+          {
+            path: "all jobs",
+            element: <AllJobs></AllJobs>,
           }
         ]
     },
