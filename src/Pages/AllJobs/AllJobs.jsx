@@ -40,7 +40,9 @@ const AllJobs = () => {
 
   return (
     <div>
+    <div className="flex justify-end my-9">
     <Filter setFilter={setFilter} filter={filter}></Filter>
+    </div>
     {
         display ? display?.map(job => <SingleJob key={job._id} job={job}></SingleJob>) : allJobs?.map(job => <SingleJob key={job._id} job={job}></SingleJob>)
     }

@@ -44,6 +44,10 @@ import AllJobs from "../Pages/AllJobs/AllJobs";
           element: <JobDetails></JobDetails>,
           loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
+        {
+          path: "all jobs",
+          element: <AllJobs></AllJobs>,
+        }
         
       ]
     },
@@ -69,10 +73,7 @@ import AllJobs from "../Pages/AllJobs/AllJobs";
             element: <ProtectedRoutes><MyJobs></MyJobs></ProtectedRoutes>,
             loader: () =>  fetch("http://localhost:5000/jobs?loggedInUserName=John%20Doe")
           },
-          {
-            path: "all jobs",
-            element: <AllJobs></AllJobs>,
-          }
+          
         ]
     },
     

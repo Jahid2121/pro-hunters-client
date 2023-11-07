@@ -12,7 +12,7 @@ const Filter = ({filter, setFilter}) => {
             <option value="On Site">Onsite</option>
             <option value="Remote">Remote</option>
             <option value="Hybrid">Hybrid</option>
-            <option value="Part time">Part time</option>
+            <option value="Part-Time">Part time</option>
           </select>
     </div>
   );
