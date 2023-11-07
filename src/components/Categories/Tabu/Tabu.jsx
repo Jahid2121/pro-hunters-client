@@ -1,6 +1,5 @@
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
-import Onsite from './AllJob/Job/Onsite/Onsite';
 import { useState } from 'react';
 import AllJob from './AllJob/AllJob';
 const Tabu = () => {

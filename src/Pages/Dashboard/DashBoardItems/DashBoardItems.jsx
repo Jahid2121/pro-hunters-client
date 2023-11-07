@@ -4,7 +4,7 @@ const DashBoardItems = () => {
     <>
     <NavLink to="/dashboard/test">Test</NavLink>
     <NavLink to="/dashboard/add product">Add Product</NavLink>
-    <NavLink to="/dashboard/test">Test</NavLink>
+    <NavLink to="/dashboard/appliedJobs">Applied Jobs</NavLink>
     <NavLink to="/dashboard/test">Test</NavLink>
     </>
   );

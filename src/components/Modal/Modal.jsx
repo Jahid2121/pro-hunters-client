@@ -1,20 +1,22 @@
 import axios from "axios";
+import UseAuth from "../../hooks/UseAuth";
 
 const Modal = ({_id}) => {
+    const {user} = UseAuth()
     const handleApply = e => {
         e.preventDefault()
         const form = e.target;
         const name = form.name.value
         const email = form.email.value
         const resume = form.resume.value
-        const appliedJobs = {
+        const appliedJob = {
             _id: _id,
             name: name,
             email: email,
             resume: resume
         }
-        console.log(appliedJobs);
-        axios.post("http://localhost:5000/appliedJobs", appliedJobs )
+        console.log(appliedJob);
+        axios.post("http://localhost:5000/appliedJobs", appliedJob )
         .then(res => {
             console.log(res.data);
         })
@@ -51,7 +53,7 @@ const Modal = ({_id}) => {
               <input
                 type="email"
                 name="email"
-                defaultValue={"jahidsarkar2121@gmail.com"}
+                defaultValue={user.email}
                 placeholder="email"
                 className="input input-bordered"
                 required

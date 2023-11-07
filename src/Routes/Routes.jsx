@@ -10,6 +10,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
 import JobDetails from "../Pages/JobDetails/JobDetails";
+import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 
 
 
@@ -55,6 +56,10 @@ import JobDetails from "../Pages/JobDetails/JobDetails";
           {
             path: "test",
             element: <h2>Test</h2>
+          },
+          {
+            path: "appliedJobs",
+            element: <AppliedJobs />,
           }
         ]
     },
