@@ -6,13 +6,14 @@ import { useEffect, useState } from "react";
 const JobDetails = () => {
   const [error, setError] = useState("");
   console.log(error);
-  const { userName, logo } = UseAuth();
+  const { userName } = UseAuth();
   const job = useLoaderData();
   const {
     _id,
     bannerUrl,
     jobTitle,
     loggedInUserName,
+    logoImage,
     jobCategory,
     salaryRange,
     jobDescription,
@@ -44,7 +45,7 @@ const JobDetails = () => {
           <div className="flex flex-grow relative">
             <img
               className="w-32  h-32"
-              src={logo}
+              src={logoImage}
               alt=""
             />
             <p className="mt-5  left-32 absolute rounded-lg text-customOrange p-1 bg-orange-100">

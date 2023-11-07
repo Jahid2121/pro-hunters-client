@@ -14,6 +14,7 @@ const AddProduct = () => {
     e.preventDefault();
     const form = e.target;
     const bannerPhoto = form.bannerImg.value;
+    const logoImage = form.logoImg.value
     const title = form.jobTitle.value;
     const name = form.name.value;
     const category = form.category.value;
@@ -29,6 +30,7 @@ const AddProduct = () => {
       loggedInUserName: name,
       jobCategory: category,
       salaryRange: salary,
+      logoImage: logoImage,
       jobDescription: [
         {
           responsibility: responsibility, 
@@ -64,7 +66,7 @@ const AddProduct = () => {
           name="name" className="input input-bordered" required />
         </div>
 
-    {/* img */}
+    {/*banner img */}
         <div className="form-control ">
           <label className="label ">
             <span className="label-text required">Banner Image</span>
@@ -72,9 +74,21 @@ const AddProduct = () => {
           <input
             type="text"
             name="bannerImg"
+            placeholder="Image URL"
+            className="input input-bordered"
+            required
+          />
+        </div>
+    {/*logo img */}
+        <div className="form-control ">
+          <label className="label ">
+            <span className="label-text required">Logo</span>
+          </label>
+          <input
+            type="text"
+            name="logoImg"
             defaultValue={logo}
             disabled
-            placeholder="Image URL"
             className="input input-bordered"
             required
           />

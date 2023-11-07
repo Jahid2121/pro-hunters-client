@@ -2,6 +2,7 @@ import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
 
 const Modal = ({job}) => {
+  const {userName} = UseAuth()
   const {
     _id,
     jobTitle,
@@ -54,8 +55,8 @@ const Modal = ({job}) => {
               <input
                 type="text"
                 name="name"
-                defaultValue={"Jahid Sarkar"}
-                placeholder=""
+                defaultValue={userName}
+                disabled
                 className="input input-bordered"
                 required
               />
@@ -65,6 +66,7 @@ const Modal = ({job}) => {
                 type="email"
                 name="email"
                 defaultValue={user.email}
+                disabled
                 placeholder="email"
                 className="input input-bordered"
                 required
