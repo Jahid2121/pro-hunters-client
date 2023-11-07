@@ -6,8 +6,9 @@ export const AuthContext = createContext()
 const AuthProvider = ({children}) => {
     const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true)
-    const [email, setEmail] = useState('')
-    const [image, setImage] = useState('')
+    const [UserName, setUserName ] = useState('')
+    const [logo, setLogo] = useState('')
+    console.log(UserName, logo);
 
     const newUser = (email, passsword) => {
         setLoading(true)
@@ -26,6 +27,9 @@ const AuthProvider = ({children}) => {
         const unsubscribe =  onAuthStateChanged(auth, currentUser => {
             setUser(currentUser)
             console.log('current User', currentUser);
+            setUserName(currentUser.displayName)
+            setLogo(currentUser.photoURL)
+            
             
             setLoading(false)
         })
