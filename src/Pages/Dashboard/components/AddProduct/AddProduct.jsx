@@ -7,6 +7,7 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const AddProduct = () => {
   const [startDate, setStartDate] = useState(new Date());
+  // const mindates = new Date()
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -157,8 +158,12 @@ const AddProduct = () => {
           <label className="label">
             <span className="required label-text"> applicationDeadline</span>
           </label>
-          <DatePicker selected={startDate} onChange={(date) => setStartDate(date)}
-           
+          <DatePicker
+           selected={startDate}
+           dateFormat="dd/MM/yyyy"
+           minDate={new Date()}
+            onChange={(date) => setStartDate(date)}
+            scrollableMonthYearDropdown
           />
 
          
