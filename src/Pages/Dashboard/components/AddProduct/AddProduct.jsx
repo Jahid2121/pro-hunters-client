@@ -4,8 +4,10 @@ import  { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import UseAuth from "../../../../hooks/UseAuth";
 
 const AddProduct = () => {
+  const {logo, userName} = UseAuth()
   const [startDate, setStartDate] = useState(new Date());
   // const mindates = new Date()
   const handleAddProduct = (e) => {
@@ -50,6 +52,18 @@ const AddProduct = () => {
     <div>
       <h2 className="text-center my-9 font-bold text-4xl text-customOrange">Add a Product</h2>
       <form onSubmit={handleAddProduct} className="card-body">
+
+        {/* name */}
+        <div className="form-control">
+          <label className="label">
+            <span className="required label-text">Name</span>
+          </label>
+          <input type="text" placeholder="name"
+          defaultValue={userName}
+          disabled
+          name="name" className="input input-bordered" required />
+        </div>
+
     {/* img */}
         <div className="form-control ">
           <label className="label ">
@@ -58,6 +72,8 @@ const AddProduct = () => {
           <input
             type="text"
             name="bannerImg"
+            defaultValue={logo}
+            disabled
             placeholder="Image URL"
             className="input input-bordered"
             required
@@ -78,13 +94,6 @@ const AddProduct = () => {
           />
         </div>
 
-        {/* name */}
-        <div className="form-control">
-          <label className="label">
-            <span className="required label-text">Name</span>
-          </label>
-          <input type="text" placeholder="name" name="name" className="input input-bordered" required />
-        </div>
     {/* job category */}
         <div className="form-control">
           <label className="label">
@@ -146,7 +155,8 @@ const AddProduct = () => {
           </label>
           <input
             required
-            draggable="false"
+            defaultValue={new Date()}
+            disabled
             placeholder="jobPostingDate"
             name="jobPostingDate"
             className="input input-bordered"

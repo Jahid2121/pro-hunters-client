@@ -6,9 +6,8 @@ import { useEffect, useState } from "react";
 const JobDetails = () => {
   const [error, setError] = useState("");
   console.log(error);
-  const { user } = UseAuth();
+  const { userName, logo } = UseAuth();
   const job = useLoaderData();
-  const currentUser = user?.email || '';
   const {
     _id,
     bannerUrl,
@@ -22,8 +21,10 @@ const JobDetails = () => {
     jobApplicantsNumber,
   } = job;
 
+
   //   handling modal visibility based on user
-  const isUserJobOwner = loggedInUserName === currentUser;
+  const isUserJobOwner = loggedInUserName === userName;
+  console.log(isUserJobOwner);
   useEffect(() => {
     if(isUserJobOwner){
         setError('You cannot apply for your own job')
@@ -43,7 +44,7 @@ const JobDetails = () => {
           <div className="flex flex-grow relative">
             <img
               className="w-32  h-32"
-              src={"https://i.ibb.co/WtgrLP3/icons8-vk-48.png"}
+              src={logo}
               alt=""
             />
             <p className="mt-5  left-32 absolute rounded-lg text-customOrange p-1 bg-orange-100">
@@ -58,7 +59,9 @@ const JobDetails = () => {
           <div>
             <div className="mt-8">
                 {
-                    !isUserJobOwner && <Modal job={job} />
+                    !isUserJobOwner ? <Modal job={job} /> 
+                    :
+                     <button disabled className="btn disabled bg-customOrange text-white">Apply Now</button>
                 }
                 
             </div>

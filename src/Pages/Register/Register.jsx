@@ -15,10 +15,10 @@ const Register = () => {
     e.preventDefault();
     const form = e.target;
     const name = form.name.value;
-    const photo = form.photoURL.value;
+    const photo = form.image.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(email, password);
+    console.log(name, photo, email, password);
 
     setError("");
     setSuccess("");
@@ -70,7 +70,6 @@ const Register = () => {
               <input
                 type="text"
                 name="name"
-                defaultValue="M Jahid"
                 placeholder="name"
                 className="input input-bordered"
                 required
@@ -83,14 +82,14 @@ const Register = () => {
               <input
                 type="file"
                 accept="image/*"
-                name="image"
+                name="imageFile"
                 placeholder="name"
                 className="input input-bordered"
               />
               <h2 className="my-2">Or give a link</h2>
               <input
                 type="text"
-                name="photoURL"
+                name="image"
                 defaultValue="https://i.ibb.co/j37x2DC/c05817991.jpg"
                 placeholder="photo URL"
                 className="input input-bordered"
