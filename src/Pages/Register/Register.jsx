@@ -2,15 +2,20 @@ import { Link } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
 import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
+import { updateProfile } from "firebase/auth";
 const Register = () => {
   const { newUser } = UseAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const [ShowPassword, setShowPassword] = useState(false)
   
-  
+
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
+    const photo = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
@@ -34,6 +39,15 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         setSuccess("User created successfully");
+
+        updateProfile(user,  {
+          displayName: name,
+          photoURL: photo
+        })
+        .then(()=> console.log('profile Update'))
+        .catch(error => {
+          console.error(error);
+        })
       })
       .catch((error) => {
         console.error(error);
@@ -70,14 +84,13 @@ const Register = () => {
                 type="file"
                 accept="image/*"
                 name="image"
-                defaultValue=""
                 placeholder="name"
                 className="input input-bordered"
               />
               <h2 className="my-2">Or give a link</h2>
               <input
                 type="text"
-                name="image"
+                name="photoURL"
                 defaultValue="https://i.ibb.co/j37x2DC/c05817991.jpg"
                 placeholder="photo URL"
                 className="input input-bordered"
@@ -92,23 +105,31 @@ const Register = () => {
                 type="email"
                 name="email"
                 defaultValue="jahidsarkar2121@gmail.com"
-                placeholder="email"
+                placeholder="email adress"
                 className="input input-bordered"
                 required
               />
+              
             </div>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Password</span>
               </label>
+              <div className=" relative">
               <input
-                type="password"
+                type={ShowPassword ? 'text' : 'password'}
                 defaultValue={123456}
                 name="password"
                 placeholder="password"
-                className="input input-bordered"
+                className="input btn-block  input-bordered"
                 required
               />
+               <span className='absolute right-4 top-3'  onClick={() => setShowPassword(!ShowPassword)}>
+              {
+                ShowPassword ? <FaEyeSlash/> : <FaEye />  
+              }
+            </span>
+              </div>
             </div>
             <div className="form-control mt-6">
               <input
@@ -126,7 +147,7 @@ const Register = () => {
                 </Link>
               </h3>
             </div>
-            {error && <p className="text-red-950 flex items-center">{error}</p>}
+            {error && <p className="text-red-950  flex items-center first-letter:text-5xl"><span className="h-5 w-5 rounded-full text-2xl ">!</span> {error}</p>}
             {success && <p className="text-green-800">{success}</p>}
           </form>
         </div>
