@@ -12,20 +12,20 @@ const AllJob = ({active, jobCategory}) => {
     const {isPending, isError, error, allJobs} = UseJobs()
     const [renderedJobs, setRenderedJobs] = useState()
     useEffect(() => {
-        if(jobCategory === "Remote"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Remote')
+        if(jobCategory === "remote"){
+            axios.get('http://localhost:5000/jobs?jobCategory=remote')
             .then(data => setRenderedJobs(data.data))
         }
-        else if(jobCategory === "Hybrid"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Hybrid')
+        else if(jobCategory === "hybrid"){
+            axios.get('http://localhost:5000/jobs?jobCategory=hybrid')
             .then(data => setRenderedJobs(data.data))
         }
-        else if(jobCategory === "Part-Time"){
-            axios.get('http://localhost:5000/jobs?jobCategory=Part-Time')
+        else if(jobCategory === "part time"){
+            axios.get('http://localhost:5000/jobs?jobCategory=part time')
             .then(data => setRenderedJobs(data.data))
         }
-        else if(jobCategory === "On Site"){
-            axios.get('http://localhost:5000/jobs?jobCategory=On Site')
+        else if(jobCategory === "on site"){
+            axios.get('http://localhost:5000/jobs?jobCategory=on site')
             .then(data => setRenderedJobs(data.data))
         }
     },[active, jobCategory])

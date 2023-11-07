@@ -37,9 +37,8 @@ const SingleJob = ({ job }) => {
               </label>
             </th>
             <td>
-              <div className="flex items-center space-x-3">
                 <div className="avatar w-40">
-                  <div className="mask  mask-squircle w-fit">
+                  <div className="rounded w-24 h-24">
                     <img className=""
                       src={bannerUrl}
                       alt="Avatar Tailwind CSS Component "
@@ -50,7 +49,6 @@ const SingleJob = ({ job }) => {
                   <div className="font-bold">{name} </div>
                   <div className="text-sm opacity-50">United States</div>
                 </div>
-              </div>
             </td>
             <td>
               Zemlak, Daniel and Leannon

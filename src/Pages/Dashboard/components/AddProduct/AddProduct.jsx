@@ -90,10 +90,10 @@ const AddProduct = () => {
             <span className="required label-text">Job Category</span>
           </label>
           <select name="category" className="input input-bordered" required>
-            <option value="On Site">Onsite</option>
-            <option value="Remote">Remote</option>
-            <option value="Hybrid">Hybrid</option>
-            <option value="Part time">Part time</option>
+            <option value="onSite">Onsite</option>
+            <option value="remote">Remote</option>
+            <option value="hybrid">Hybrid</option>
+            <option value="part time">Part time</option>
           </select>
         </div>
 
@@ -164,6 +164,7 @@ const AddProduct = () => {
          
         </div>
 
+      {/* job applicants number */}
         <div className="form-control">
           <label className="label">
             <span className="required label-text"> Job Applicants Number</span>

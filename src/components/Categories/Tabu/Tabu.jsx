@@ -24,16 +24,16 @@ const Tabu = () => {
           {active === 0 && <AllJob></AllJob>}
         </TabPanel>
         <TabPanel>
-          {active === 1 && <AllJob jobCategory="Remote"></AllJob>}
+          {active === 1 && <AllJob jobCategory="remote"></AllJob>}
         </TabPanel>
         <TabPanel>
-          {active === 2 && <AllJob jobCategory="Hybrid"></AllJob>}
+          {active === 2 && <AllJob jobCategory="hybrid"></AllJob>}
         </TabPanel>
         <TabPanel>
-          {active === 3 && <AllJob jobCategory="Part-Time"></AllJob>}
+          {active === 3 && <AllJob jobCategory="part time"></AllJob>}
         </TabPanel>
         <TabPanel>
-          {active === 4 && <AllJob jobCategory="On Site"></AllJob>}
+          {active === 4 && <AllJob jobCategory="on site"></AllJob>}
         </TabPanel>
   </Tabs>
   </>
