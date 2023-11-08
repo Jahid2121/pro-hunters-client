@@ -1,6 +1,7 @@
 import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
-
+// import emailjs from '@emailjs/browser';
+// import { useRef } from "react";
 const Modal = ({job}) => {
   const {userName} = UseAuth()
   const {
@@ -15,6 +16,7 @@ const Modal = ({job}) => {
     jobApplicantsNumber,
   } = job;
     const {user} = UseAuth()
+    const sendEmail = useRef()
     const handleApply = e => {
         e.preventDefault()
         const form = e.target;
@@ -31,8 +33,32 @@ const Modal = ({job}) => {
         axios.post("http://localhost:5000/appliedJobs", appliedJob )
         .then(res => {
             console.log(res.data);
-        })
+          })
+
+    //       emailjs.sendForm('service_ut9ajug', 'template_aayrs7s', {
+    //         name: sendEmail.current.name.value, // Use the input field value for the 'name' variable in the email template
+    //         email: sendEmail.current.email.value, // Get the email value from the input field
+    //         resume: sendEmail.current.resume.value // Get the resume value from the input field
+    //       }, 'ksdc3y5Y5pnwnthEu')
+    //   .then((result) => {
+    //       console.log(result.text);
+    //   }, (error) => {
+    //       console.log(error.text);
+    //   });
+          
     }
+
+    const handleIncrement = () => {
+      // Increment jobApplicantsNumber and  on successful application submission
+            axios
+            .patch(`http://localhost:5000/jobs/${_id}`)
+            .then((response) => {
+              console.log(response.data);
+            })
+
+    }
+
+
   return (
     <div className="">
       {/* You can open the modal using document.getElementById('ID').showModal() method */}
@@ -50,13 +76,13 @@ const Modal = ({job}) => {
               ✕
             </button>
           </form>
-          <form onSubmit={handleApply}>
+          <form ref={sendEmail} onSubmit={handleApply}>
             <div className="form-control">
               <input
                 type="text"
                 name="name"
                 defaultValue={userName}
-                disa
+                
                 className="input input-bordered"
                 required
               />
@@ -84,7 +110,7 @@ const Modal = ({job}) => {
                 required
               />
             </div>
-            <button className="btn btn-block bg-customOrange text-white mt-4">Submit Application</button>
+            <button onClick={handleIncrement} className="btn btn-block bg-customOrange text-white mt-4">Submit Application</button>
           </form>
         </div>
       </dialog>

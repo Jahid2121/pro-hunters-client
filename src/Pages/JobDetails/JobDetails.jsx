@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Modal from "../../components/Modal/Modal";
 import UseAuth from "../../hooks/UseAuth";
 import { useEffect, useState } from "react";
+import toast from "react-hot-toast";
 
 const JobDetails = () => {
   function formatDate(date) {
@@ -13,7 +14,7 @@ const JobDetails = () => {
 
   const currentDate = new Date();
   const formattedDate = formatDate(currentDate);
-  console.log(formattedDate); 
+  // console.log(formattedDate); 
 
   const [error, setError] = useState("");
   const { userName } = UseAuth();
@@ -34,11 +35,15 @@ const JobDetails = () => {
 
   const isDeadlineOver = applicationDeadline < formattedDate
 
-  
-  console.log("deadline", applicationDeadline);
-  console.log('deadline over', isDeadlineOver);
-  // startdate console = Tue Nov 07 2023 18:31:35 GMT+0600 (Bangladesh Standard Time)
-  // applicationDeadline console =
+
+  const handleToast = () => {
+    toast.error("Application Deadline is over")
+  }
+
+
+
+
+
 
   //   handling modal visibility based on user
   const isUserJobOwner = loggedInUserName === userName;
@@ -70,16 +75,18 @@ const JobDetails = () => {
 
           <div>
             <div className="mt-8">
-              {!isUserJobOwner ? (
-                <Modal job={job} />
-              ) : (
+              { isDeadlineOver ? ( <button onClick={handleToast} className="btn  bg-customOrange text-white">Apply Now</button> ) :
+              isUserJobOwner ? (
                 <button
                   disabled
                   className="btn disabled bg-customOrange text-white"
                 >
                   {error}
                 </button>
-              )}
+              ) :
+               (
+                <Modal job={job} />
+              )  }
             </div>
             <p className="text-xs text-customGray">
               Application deadline: {applicationDeadline}
