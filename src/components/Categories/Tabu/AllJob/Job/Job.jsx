@@ -36,7 +36,7 @@ const Job = ({ job }) => {
         <p>Total Applicants : {jobApplicantsNumber}</p>
         <Link
           to={`/jobDetails/${_id}`}
-          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-customOrange rounded-lg hover:bg-customOrange focus:ring-4 focus:outline-none focus:ring-customOrange dark:bg-customOrange dark:hover:bg-customOrange dark:focus:ring-customOrange"
+          className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
         >
           View Details
           <svg

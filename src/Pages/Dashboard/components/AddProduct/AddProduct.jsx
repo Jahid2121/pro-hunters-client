@@ -1,14 +1,36 @@
 import axios from "axios";
 import "../AddProduct/AddProduct.css";
-import  { useState } from "react";
+import  { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import UseAuth from "../../../../hooks/UseAuth";
+import toast from "react-hot-toast";
+
+
 
 const AddProduct = () => {
   const {logo, userName} = UseAuth()
   const [startDate, setStartDate] = useState(new Date());
+  const [formattedDate, setFormattedDate] = useState(null);
+
+  useEffect(() => {
+    // Format the current date
+    const currentDate = new Date();
+    const formattedDate = formatDate(currentDate);
+    setFormattedDate(formattedDate);
+  }, []);
+
+  function formatDate(date) {
+    const day = String(date.getDate()).padStart(2, '0');
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const year = date.getFullYear();
+    return `${month}/${day}/${year}`;
+  }
+
+  
+
+  
   const handleAddProduct = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -22,7 +44,7 @@ const AddProduct = () => {
     const requirement = form.requirement.value;
     const jobPostingDate = form.jobPostingDate.value;
     const Deadline = form.applicationDeadline.value;
-    const jobApplicantsNumber = form.jobApplicantsNumber.value;
+    const jobApplicantsNumber = parseInt(form.jobApplicantsNumber.value);
     const job = {
       bannerUrl: bannerPhoto,
       jobTitle: title,
@@ -44,7 +66,11 @@ const AddProduct = () => {
     console.log(job);
     axios.post("http://localhost:5000/jobs", job)
     .then(res => {
-      console.log(res.data);
+      const data = res.data;
+      console.log(data);
+      if(data.insertedId){
+        toast.success("Job Added Successfully")
+      }
     })
     
   };
@@ -113,7 +139,7 @@ const AddProduct = () => {
             <span className="required label-text">Job Category</span>
           </label>
           <select name="category" className="input input-bordered" required>
-            <option value="onSite">Onsite</option>
+            <option value="onsite">Onsite</option>
             <option value="remote">Remote</option>
             <option value="hybrid">Hybrid</option>
             <option value="part time">Part time</option>
@@ -168,7 +194,7 @@ const AddProduct = () => {
           </label>
           <input
             required
-            defaultValue={new Date()}
+            defaultValue={formattedDate}
             disabled
             placeholder="jobPostingDate"
             name="jobPostingDate"

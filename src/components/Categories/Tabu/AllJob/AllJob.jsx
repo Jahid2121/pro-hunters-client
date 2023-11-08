@@ -24,8 +24,8 @@ const AllJob = ({active, jobCategory}) => {
             axios.get('http://localhost:5000/jobs?jobCategory=part time')
             .then(data => setRenderedJobs(data.data))
         }
-        else if(jobCategory === "on site"){
-            axios.get('http://localhost:5000/jobs?jobCategory=on site')
+        else if(jobCategory === "on site" || jobCategory === "onsite"){
+            axios.get('http://localhost:5000/jobs?jobCategory=onsite')
             .then(data => setRenderedJobs(data.data))
         }
     },[active, jobCategory])

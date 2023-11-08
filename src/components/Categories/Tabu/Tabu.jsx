@@ -32,7 +32,7 @@ const Tabu = () => {
           {active === 3 && <AllJob jobCategory="part time"></AllJob>}
         </TabPanel>
         <TabPanel>
-          {active === 4 && <AllJob jobCategory="on site"></AllJob>}
+          {active === 4 && <AllJob jobCategory="onsite"></AllJob>}
         </TabPanel>
   </Tabs>
   </>

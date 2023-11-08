@@ -90,7 +90,6 @@ const Register = () => {
               <input
                 type="text"
                 name="image"
-                defaultValue="https://i.ibb.co/j37x2DC/c05817991.jpg"
                 placeholder="photo URL"
                 className="input input-bordered"
                 required
@@ -103,8 +102,7 @@ const Register = () => {
               <input
                 type="email"
                 name="email"
-                defaultValue="jahidsarkar2121@gmail.com"
-                placeholder="email adress"
+                placeholder="email address"
                 className="input input-bordered"
                 required
               />
@@ -117,7 +115,6 @@ const Register = () => {
               <div className=" relative">
               <input
                 type={ShowPassword ? 'text' : 'password'}
-                defaultValue={123456}
                 name="password"
                 placeholder="password"
                 className="input btn-block  input-bordered"
