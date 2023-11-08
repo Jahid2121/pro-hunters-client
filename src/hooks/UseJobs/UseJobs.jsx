@@ -4,7 +4,7 @@ const UseJobs = () => {
     const {isPending, isError, error, data: allJobs} = useQuery({
         queryKey: ['allJob'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/jobs')
+            const res = await fetch('https://pro-hunters-server.vercel.app/jobs')
          return res.json()
         }
     })

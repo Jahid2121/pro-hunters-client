@@ -29,7 +29,7 @@ const Modal = ({job}) => {
             resume: resume
         }
         console.log(appliedJob);
-        axios.post("http://localhost:5000/appliedJobs", appliedJob )
+        axios.post("https://pro-hunters-server.vercel.app/appliedJobs", appliedJob )
         .then(res => {
             console.log(res.data);
           })
@@ -51,7 +51,7 @@ const Modal = ({job}) => {
     const handleIncrement = () => {
       // Increment jobApplicantsNumber and  on successful application submission
             axios
-            .patch(`http://localhost:5000/jobs/${_id}`)
+            .patch(`https://pro-hunters-server.vercel.app/jobs/${_id}`)
             .then((response) => {
               console.log(response.data);
             })

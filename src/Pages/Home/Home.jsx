@@ -1,3 +1,4 @@
+import NewsLetter from "../../assets/NewsLetter/NewsLetter";
 import Categories from "../../components/Categories/Categories";
 import Companies from "../Companies/Companies";
 import Banner from "./Banner/Banner";
@@ -9,6 +10,7 @@ const Home = () => {
     <Banner />
     <Companies></Companies>
     <Categories />
+    <NewsLetter />
     </>
   );
 };

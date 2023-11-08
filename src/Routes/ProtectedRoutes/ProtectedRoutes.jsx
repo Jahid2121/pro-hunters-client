@@ -1,9 +1,10 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Navigate, useLocation } from "react-router-dom";
 import UseAuth from "../../hooks/UseAuth";
 import Loading from "../../assets/animation/icons8-search.json"
 import Lottie from "lottie-react";
 const ProtectedRoutes = ({children}) => {
     const {user, loading} = UseAuth()
+    const location = useLocation()
 
     if(loading){
         return ( <div className="flex justify-center  items-center mt-20">
@@ -15,7 +16,7 @@ const ProtectedRoutes = ({children}) => {
     if(user?.email){
         return children
     }
-  return <NavLink to="/login"  replace/>
+  return <Navigate state={location.pathname} to="/login"  replace/>
 };
 
 export default ProtectedRoutes;

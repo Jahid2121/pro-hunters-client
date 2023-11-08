@@ -26,10 +26,6 @@ import Blogs from "../Pages/Blogs/Blogs";
       children: [
         {
             path: "/",
-            element: <Navigate to="/home" replace />
-        },
-        {
-            path: "/home",
             element: <Home></Home>
         },
         {
@@ -43,10 +39,10 @@ import Blogs from "../Pages/Blogs/Blogs";
         {
           path: "/jobDetails/:id",
           element: <ProtectedRoutes><JobDetails></JobDetails></ProtectedRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+          loader: ({params}) => fetch(`https://pro-hunters-server.vercel.app/jobs/${params.id}`)
         },
         {
-          path: "alljobs",
+          path: "allJobs",
           element: <AllJobs></AllJobs>,
         },
         {
@@ -76,7 +72,7 @@ import Blogs from "../Pages/Blogs/Blogs";
           {
             path: "my Jobs",
             element: <ProtectedRoutes><MyJobs></MyJobs></ProtectedRoutes>,
-            loader: () =>  fetch("http://localhost:5000/jobs?loggedInUserName=John%20Doe")
+            loader: () =>  fetch("https://pro-hunters-server.vercel.app/jobs?loggedInUserName=John%20Doe")
           },
           
         ]

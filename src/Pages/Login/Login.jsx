@@ -41,7 +41,7 @@ const Login = () => {
         const user = {email }
 
         // access token
-        axios.post('http://localhost:5000/jwt',user,
+        axios.post('https://pro-hunters-server.vercel.app/jwt',user,
          {withCredentials: true})
         .then(res => {
           console.log(res.data);

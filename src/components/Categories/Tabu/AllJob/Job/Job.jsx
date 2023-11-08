@@ -1,6 +1,22 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UseAuth from "../../../../../hooks/UseAuth";
+import { Toast } from "flowbite-react";
+import toast from "react-hot-toast";
 
 const Job = ({ job }) => {
+  const {user} = UseAuth()
+  const navigate = useNavigate()
+
+  const handleNavigate = () => {
+    if(!user)
+     {
+      toast.error('Only User can view details. Login first')
+      navigate('/login')
+    }
+    else{
+      navigate(`/jobDetails/${_id}`)
+    } 
+  }
   const {
     _id,
     bannerUrl,
@@ -34,8 +50,7 @@ const Job = ({ job }) => {
         </a>
         <p className="text-gray-700 dark:text-gray-400">{salaryRange}</p>
         <p>Total Applicants : {jobApplicantsNumber}</p>
-        <Link
-          to={`/jobDetails/${_id}`}
+        <Link onClick={handleNavigate}
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
         >
           View Details

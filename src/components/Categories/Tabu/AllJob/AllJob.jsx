@@ -13,19 +13,19 @@ const AllJob = ({active, jobCategory}) => {
     const [renderedJobs, setRenderedJobs] = useState()
     useEffect(() => {
         if(jobCategory === "remote"){
-            axios.get('http://localhost:5000/jobs?jobCategory=remote')
+            axios.get('https://pro-hunters-server.vercel.app/jobs?jobCategory=remote')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "hybrid"){
-            axios.get('http://localhost:5000/jobs?jobCategory=hybrid')
+            axios.get('https://pro-hunters-server.vercel.app/jobs?jobCategory=hybrid')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "part time"){
-            axios.get('http://localhost:5000/jobs?jobCategory=part time')
+            axios.get('https://pro-hunters-server.vercel.app/jobs?jobCategory=part time')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "on site" || jobCategory === "onsite"){
-            axios.get('http://localhost:5000/jobs?jobCategory=onsite')
+            axios.get('https://pro-hunters-server.vercel.app/jobs?jobCategory=onsite')
             .then(data => setRenderedJobs(data.data))
         }
     },[active, jobCategory])

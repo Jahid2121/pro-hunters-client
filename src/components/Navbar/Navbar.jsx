@@ -51,10 +51,15 @@ const Navbar = ({ children }) => {
               </span>{" "}
               Hunters
             </div>
-            <div className="flex-none  hidden lg:block">
-              <ul className="menu  menu-horizontal">
+            <div className="flex-none gap-9 hidden lg:block">
+              <ul className="menu   menu-horizontal">
                 {/* Navbar menu content here */}
-                <NavItems />
+                <div className="flex gap-5 mr-3 items-center">
+                <NavLink to="/">Home</NavLink>
+                <NavLink to="/blogs">Blogs</NavLink>
+                <NavLink to="/dashboard">Dashboard</NavLink>
+                <NavLink to="/alljobs">All Jobs</NavLink>
+                </div>
                 {user ? (
                   <>
                   <li className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm" onClick={handleLogOut}>
