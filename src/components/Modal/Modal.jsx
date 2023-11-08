@@ -1,7 +1,7 @@
 import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
+import { useRef } from "react";
 // import emailjs from '@emailjs/browser';
-// import { useRef } from "react";
 const Modal = ({job}) => {
   const {userName} = UseAuth()
   const {
@@ -24,7 +24,6 @@ const Modal = ({job}) => {
         const email = form.email.value
         const resume = form.resume.value
         const appliedJob = {
-            _id: _id,
             name: name,
             email: email,
             resume: resume
@@ -35,16 +34,17 @@ const Modal = ({job}) => {
             console.log(res.data);
           })
 
-    //       emailjs.sendForm('service_ut9ajug', 'template_aayrs7s', {
-    //         name: sendEmail.current.name.value, // Use the input field value for the 'name' variable in the email template
-    //         email: sendEmail.current.email.value, // Get the email value from the input field
-    //         resume: sendEmail.current.resume.value // Get the resume value from the input field
-    //       }, 'ksdc3y5Y5pnwnthEu')
-    //   .then((result) => {
-    //       console.log(result.text);
-    //   }, (error) => {
-    //       console.log(error.text);
-    //   });
+          // const templateParams = {
+          //   email_to: 'jahidhasan20u@gmail.com', // Replace this with the actual recipient's email address
+          //   // ... other template parameters
+          // };
+
+      //     emailjs.sendForm('service_ut9ajug', 'template_aayrs7s', templateParams, 'ksdc3y5Y5pnwnthEu')
+      // .then((result) => {
+      //     console.log(result.text);
+      // }, (error) => {
+      //     console.log(error.text);
+      // });
           
     }
 
