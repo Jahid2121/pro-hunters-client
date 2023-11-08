@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
 import { useState } from "react";
@@ -11,6 +11,7 @@ const Login = () => {
   const [error, setError] = useState("");
 
   const [success, setSuccess] = useState("");
+  const location = useLocation()
   const navigate = useNavigate()
 
   const handleGoogleLogin = () => {
