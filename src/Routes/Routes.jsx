@@ -14,6 +14,7 @@ import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import AllJobs from "../Pages/AllJobs/AllJobs";
+import Blogs from "../Pages/Blogs/Blogs";
 
 
 
@@ -47,6 +48,10 @@ import AllJobs from "../Pages/AllJobs/AllJobs";
         {
           path: "all jobs",
           element: <AllJobs></AllJobs>,
+        },
+        {
+          path:"blogs",
+          element:<Blogs></Blogs>
         }
         
       ]
