@@ -46,7 +46,7 @@ import Blogs from "../Pages/Blogs/Blogs";
           loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
-          path: "all jobs",
+          path: "alljobs",
           element: <AllJobs></AllJobs>,
         },
         {

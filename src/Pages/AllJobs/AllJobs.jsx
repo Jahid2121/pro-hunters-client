@@ -6,7 +6,7 @@ import SingleJob from "../../components/SingleJob/SingleJob";
 
 const AllJobs = () => {
     const [filter, setFilter] = useState()
-    const {isError, error, allJobs} = UseJobs()
+    const {isPending, isError, error, allJobs} = UseJobs()
     console.log(filter);
 
     const [display, setDisplay] = useState(null)

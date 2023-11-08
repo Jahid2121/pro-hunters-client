@@ -9,7 +9,7 @@ const Navbar = ({ children }) => {
   const { user, logOut, logo } = UseAuth();
 
   const handleLogOut = () => {
-    logOut(auth)
+    logOut()
       .then(() => {})
       .catch((error) => {
         console.error(error);
@@ -57,8 +57,8 @@ const Navbar = ({ children }) => {
                 <NavItems />
                 {user ? (
                   <>
-                  <li className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm" onClick={logOut}>
-                    <button className="p-3 bg-orange-500">Logout</button>
+                  <li className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm" onClick={handleLogOut}>
+                    <button  className="p-3 bg-orange-500">Logout</button>
                   </li>
 
 

@@ -1,12 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
 import { useState } from "react";
+import axios from "axios";
+import { AiOutlineGoogle } from "react-icons/ai";
+
 
 const Login = () => {
-  const { signIn } = UseAuth();
+  const { signIn, googleLogin } = UseAuth();
   const [error, setError] = useState("");
+
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate()
+
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result => {
+      console.log(result.user);
+      navigate(location?.state ? location.state : '/')
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -20,8 +36,20 @@ const Login = () => {
 
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
+        const loggedInUser = result.user;
+        console.log(loggedInUser);
+        const user = {email }
+
+        // access token
+        axios.post('http://localhost:5000/jwt',user,
+         {withCredentials: true})
+        .then(res => {
+          console.log(res.data);
+          if(res.data.success){
+            // navigate 
+          }
+        })
+
         setSuccess('Logged in successfully')
       })
       .catch((error) => {
@@ -69,6 +97,7 @@ const Login = () => {
                   Forgot password?
                 </a>
               </label>
+              <span onClick={handleGoogleLogin}><button className='hover:bg-custom-yellow p-3 mt-8 mr-5 border text-2xl rounded-full'><AiOutlineGoogle/> </button></span>
               {error && (
                 <p className="text-red-950  flex items-center first-letter:text-5xl">
                   <span className="h-5 w-5 rounded-full text-2xl ">!</span>{" "}

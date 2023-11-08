@@ -6,7 +6,7 @@ const UseAppliedJobs = () => {
     const {isPending, isError, error, data: appliedJobs} = useQuery({
         queryKey: ['appliedJobs'],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/appliedJobs?email=${user?.email}`)
+            const res = await fetch(`http://localhost:5000/appliedJobs?email=${user?.email}`, {credentials: 'include'})
          return res.json()
         }
     })
