@@ -22,7 +22,7 @@ const Blogs = () => {
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 ">
         {blogsData.map(blog => (
           <Card key={blog.id} >
-            <img src={blog.imageUrl} alt="" />
+            <img className="w-[500px] h-[400px]" src={blog.imageUrl} alt="" />
             <a>
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{blog.title}</h5>
             </a>
