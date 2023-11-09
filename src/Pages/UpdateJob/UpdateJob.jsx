@@ -27,7 +27,7 @@ const UpdateJob = ({job}) => {
         };
     
         axios
-          .put(`http://localhost:5000/jobs/${_id}`, jobUpdate)
+          .put(`https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs/${_id}`, jobUpdate)
           .then((res) => {
             const data = res.data;
             if (data.modifiedCount) {

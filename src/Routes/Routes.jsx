@@ -41,7 +41,7 @@ const {userName} = UseAuth;
         {
           path: "/jobDetails/:id",
           element: <ProtectedRoutes><JobDetails></JobDetails></ProtectedRoutes>,
-          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
+          loader: ({params}) => fetch(`https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs/${params.id}`)
         },
         {
           path: "allJobs",
