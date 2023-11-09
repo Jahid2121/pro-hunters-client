@@ -6,6 +6,7 @@ import { useState } from "react";
 import UseAuth from "../../hooks/UseAuth";
 import { useContext } from "react";
 import { AuthContext } from "../../config/AuthProvider";
+import { Helmet } from "react-helmet-async";
 const AppliedJobs = () => {
     // const { isError, error, appliedJobs} = UseAppliedJobs()
     const { user } = useContext(AuthContext);
@@ -28,6 +29,9 @@ const AppliedJobs = () => {
 
     return (
       <div>
+        <Helmet>
+          <title>Applied Jobs</title>
+        </Helmet>
         {appliedJobs?.map(appliedjob => (
           <AppliedJob key={appliedjob._id} appliedjob={appliedjob}></AppliedJob>
         ))}

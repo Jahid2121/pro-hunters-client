@@ -16,6 +16,7 @@ import MyJobs from "../Pages/MyJobs/MyJobs";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import Blogs from "../Pages/Blogs/Blogs";
 import UseAuth from "../hooks/UseAuth";
+import UpdateJob from "../Pages/UpdateJob/UpdateJob";
 const {userName} = UseAuth;
 
 
@@ -62,6 +63,7 @@ const {userName} = UseAuth;
             path: "addJob",
             element: <AddProduct></AddProduct>
           },
+          
           {
             path: "appliedJobs",
             element: <ProtectedRoutes><AppliedJobs /></ProtectedRoutes>,

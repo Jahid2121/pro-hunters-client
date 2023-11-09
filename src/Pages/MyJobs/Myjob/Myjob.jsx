@@ -1,5 +1,6 @@
-import axios from "axios";
+
 import Swal from "sweetalert2";
+import UpdateJob from "../../UpdateJob/UpdateJob";
 
 const Myjob = ({ job }) => {
   const {
@@ -14,8 +15,8 @@ const Myjob = ({ job }) => {
     applicationDeadline,
     jobApplicantsNumber,
   } = job;
-  
-  const handleDelete = _id => {
+
+  const handleDelete = (_id) => {
     console.log(_id);
     Swal.fire({
       title: "Are you sure?",
@@ -24,28 +25,26 @@ const Myjob = ({ job }) => {
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!"
+      confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch(`http://localhost:5000/jobs/${_id}`, {
-          method: 'DELETE'
+          method: "DELETE",
         })
-        .then(res => res.json())
-        .then(data => {
-          console.log(data);
-          if(data.deletedCount > 0){
-
-            Swal.fire({
-              title: "Deleted!",
-              text: "Your file has been deleted.",
-              icon: "success"
-            });
-          }
-        })
-
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your file has been deleted.",
+                icon: "success",
+              });
+            }
+          });
       }
     });
-  }
+  };
 
   return (
     <div className="overflow-x-auto">
@@ -79,8 +78,9 @@ const Myjob = ({ job }) => {
               </span>
             </td>
             <button
-            onClick={()=>handleDelete(_id)}
-            className="btn mt-9 bg-red-700 w-10 h-4 text-white  btn-square btn-outline">
+              onClick={() => handleDelete(_id)}
+              className="btn mt-9 bg-red-700 w-10 h-4 text-white  btn-square btn-outline"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-6 w-6"
@@ -97,9 +97,17 @@ const Myjob = ({ job }) => {
               </svg>
             </button>
             <th>
-              <button className="btn btn-ghost bg-customOrange text-white btn-xs">
+                {/* Open the modal using document.getElementById('ID').showModal() method */}
+                <button
+                  className="btn bg-customOrange text-white"
+                  onClick={() =>
+                    document.getElementById("my_modal_4").showModal()
+                  }
+                >
                 Update
-              </button>
+                </button>
+
+               <UpdateJob  job={job}/>
             </th>
           </tr>
         </tbody>
