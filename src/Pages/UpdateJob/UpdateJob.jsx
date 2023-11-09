@@ -18,18 +18,16 @@ const UpdateJob = ({job}) => {
         const form = e.target;
         const bannerPhoto = form.bannerImg.value;
         const title = form.jobTitle.value;
-        const category = form.category.value;
-        const salary = form.salaryRanger.value;
+        const salary = form.salaryRange.value;
     
         const jobUpdate = {
           bannerUrl: bannerPhoto,
           jobTitle: title,
-          jobCategory: category,
           salaryRange: salary,
         };
     
         axios
-          .patch(`http://localhost:5000/jobs/${_id}`, jobUpdate)
+          .put(`http://localhost:5000/jobs/${_id}`, jobUpdate)
           .then((res) => {
             const data = res.data;
             if (data.modifiedCount) {
@@ -75,7 +73,6 @@ const UpdateJob = ({job}) => {
           <input
             type="text"
             name="bannerImg"
-            placeholder="Image URL"
             defaultValue={bannerUrl}
             className="input input-bordered"
             required
@@ -92,14 +89,13 @@ const UpdateJob = ({job}) => {
             type="text"
             name="jobTitle"
             defaultValue={jobTitle}
-            placeholder="Job title"
             className="input input-bordered"
             required
           />
         </div>
 
     {/* job category */}
-        <div className="form-control">
+        {/* <div className="form-control">
           <label className="label">
             <span className="required label-text">Job Category</span>
           </label>
@@ -109,22 +105,15 @@ const UpdateJob = ({job}) => {
             <option value="hybrid">Hybrid</option>
             <option value="part time">Part time</option>
           </select>
-        </div>
+        </div> */}
 
-      {/* salaryRange */}
-        <div className="form-control">
-          <label className="label">
-            <span className="required label-text">Salary range</span>
-          </label>
-          <input
-            type="text"
-            name="salaryRanger"
-            placeholder="Salary range"
-            defaultValue={salaryRange}
-            className="input input-bordered"
-            required
-          />
-        </div>
+        <input
+  type="text"
+  name="salaryRange"
+  defaultValue={salaryRange}
+  className="input input-bordered"
+  required
+/>
         
      
 

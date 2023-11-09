@@ -65,17 +65,17 @@ const Myjob = ({ job }) => {
                   </div>
                 </div>
                 <div>
-                  <div className="font-bold">{loggedInUserName} </div>
-                  <div className="text-sm opacity-50">United States</div>
+                  <div className="font-bold">{jobTitle} </div>
+                  <div className="text-sm opacity-50">{jobCategory}</div>
                 </div>
               </div>
             </td>
             <td>
-              Zemlak, Daniel and Leannon
+            {salaryRange}
               <br />
-              <span className="badge badge-ghost badge-sm">
+              {/* <span className="badge badge-ghost badge-sm">
                 Desktop Support Technician
-              </span>
+              </span> */}
             </td>
             <button
               onClick={() => handleDelete(_id)}

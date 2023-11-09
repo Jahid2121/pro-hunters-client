@@ -1,12 +1,10 @@
-import NavItems from "./NavItems";
 import search from "../../assets/Icons/Frame 37.svg";
 import Footer from "../Footer/Footer";
 import UseAuth from "../../hooks/UseAuth";
 import { Link, NavLink } from "react-router-dom";
-import auth from "../../config/firebase.cofig";
 import "../Navbar/NavItems.css";
 const Navbar = ({ children }) => {
-  const { user, logOut, logo } = UseAuth();
+  const { user, logOut, logo, userName } = UseAuth();
 
   const handleLogOut = () => {
     logOut()
@@ -110,7 +108,7 @@ const Navbar = ({ children }) => {
                         </div>
                       </label>
                       <ul className="hidden group-hover:block right-11 absolute mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                        <p>{user.email}</p>
+                        <p>{userName}</p>
                       </ul>
                     </div>
                   </div>
@@ -118,7 +116,7 @@ const Navbar = ({ children }) => {
 
                   
                 
-                    <Link to="/login" className="items-center flex">
+                    <Link to="/login" className="items-center bg-custom-Pink-light text-white text-base font-medium  rounded-sm p-3 bg-orange-500 flex">
                       Login
                     </Link>
                 )}
