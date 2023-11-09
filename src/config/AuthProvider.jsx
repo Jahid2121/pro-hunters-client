@@ -8,7 +8,8 @@ const AuthProvider = ({children}) => {
     const [loading, setLoading] = useState(true)
     const [userName, setUserName ] = useState('')
     const [logo, setLogo] = useState('')
-
+    const [myJobs, setMyJobs] = useState([])
+    console.log(userName);
     const googleProvider = new GoogleAuthProvider()
 
     const newUser = (email, passsword) => {
@@ -27,6 +28,13 @@ const AuthProvider = ({children}) => {
     const logOut = () => {
         return signOut(auth)
     }
+
+    
+    useEffect(() => {
+      fetch(`http://localhost:5000/jobs?loggedInUserName=${userName}`,{withcreadential: 'true'})
+      .then(res => res.json())
+      .then(data => setMyJobs(data))
+    },[])
 
 
 
@@ -52,6 +60,7 @@ const AuthProvider = ({children}) => {
         user, 
         loading,
         userName,
+        myJobs,
         logo,
         googleLogin
     }

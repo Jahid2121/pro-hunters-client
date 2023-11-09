@@ -39,7 +39,7 @@ const SingleJob = ({ job }) => {
             <td>
                 <div className="avatar w-40">
                   <div className="rounded w-24 h-24">
-                    <img className=""
+                    <img
                       src={bannerUrl}
                       alt="Avatar Tailwind CSS Component "
                     />

@@ -15,7 +15,8 @@ import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
 import MyJobs from "../Pages/MyJobs/MyJobs";
 import AllJobs from "../Pages/AllJobs/AllJobs";
 import Blogs from "../Pages/Blogs/Blogs";
-
+import UseAuth from "../hooks/UseAuth";
+const {userName} = UseAuth;
 
 
   const router = createBrowserRouter([
@@ -39,7 +40,7 @@ import Blogs from "../Pages/Blogs/Blogs";
         {
           path: "/jobDetails/:id",
           element: <ProtectedRoutes><JobDetails></JobDetails></ProtectedRoutes>,
-          loader: ({params}) => fetch(`https://pro-hunters-server.vercel.app/jobs/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
           path: "allJobs",
@@ -58,21 +59,16 @@ import Blogs from "../Pages/Blogs/Blogs";
         element: <Dashboard ></Dashboard>,
         children: [
           {
-            path: "add job",
+            path: "addJob",
             element: <AddProduct></AddProduct>
           },
           {
-            path: "test",
-            element: <h2>Test</h2>
-          },
-          {
-            path: "applied Jobs",
+            path: "appliedJobs",
             element: <ProtectedRoutes><AppliedJobs /></ProtectedRoutes>,
           },
           {
-            path: "my Jobs",
+            path: "myJobs",
             element: <ProtectedRoutes><MyJobs></MyJobs></ProtectedRoutes>,
-            loader: () =>  fetch("https://pro-hunters-server.vercel.app/jobs?loggedInUserName=John%20Doe")
           },
           
         ]

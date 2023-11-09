@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import UseAuth from "../../hooks/UseAuth";
 import { Link, NavLink } from "react-router-dom";
 import auth from "../../config/firebase.cofig";
-
+import "../Navbar/NavItems.css";
 const Navbar = ({ children }) => {
   const { user, logOut, logo } = UseAuth();
 
@@ -55,41 +55,72 @@ const Navbar = ({ children }) => {
               <ul className="menu   menu-horizontal">
                 {/* Navbar menu content here */}
                 <div className="flex gap-5 mr-3 items-center">
-                <NavLink to="/">Home</NavLink>
-                <NavLink to="/blogs">Blogs</NavLink>
-                <NavLink to="/dashboard">Dashboard</NavLink>
-                <NavLink to="/alljobs">All Jobs</NavLink>
+                  <NavLink
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "custom" : ""
+                    }
+                    to="/"
+                  >
+                    Home
+                  </NavLink>
+                  <NavLink
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "custom" : ""
+                    }
+                    to="/blogs"
+                  >
+                    Blogs
+                  </NavLink>
+
+                  <NavLink
+                    className={({ isActive, isPending }) =>
+                      isPending ? "pending" : isActive ? "custom" : ""
+                    }
+                    to="/alljobs"
+                  >
+                    All Jobs
+                  </NavLink>
                 </div>
                 {user ? (
-                  <>
-                  <li className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm" onClick={handleLogOut}>
-                    <button  className="p-3 bg-orange-500">Logout</button>
-                  </li>
+                  <div className="flex items-center gap-2">
+                    <NavLink 
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "custom" : ""
+                  }
+                  to="/dashboard"
+                >
+                  Dashboard
+                </NavLink> 
+                    <li
+                      className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm"
+                      onClick={handleLogOut}
+                    >
+                      <button className="p-3 bg-orange-500">Logout</button>
+                    </li>
 
-
-                <div className="group relative">
-                <label tabIndex={0} className="btn bg-white w-14 ">
-                  <div>
-                    {
-                      <img className="absolute -ml-7 -mt-6 rounded" src={logo} />
-                    }
+                    <div className="group relative">
+                      <label tabIndex={0} className="btn bg-white w-14 ">
+                        <div>
+                          {
+                            <img
+                              className="absolute -ml-7 -mt-6 rounded"
+                              src={logo}
+                            />
+                          }
+                        </div>
+                      </label>
+                      <ul className="hidden group-hover:block right-11 absolute mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+                        <p>{user.email}</p>
+                      </ul>
+                    </div>
                   </div>
-                </label>
-                <ul className="hidden group-hover:block right-11 absolute mt-3 p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-                  <p>{user.email}</p>
-                  
-                </ul>
-              </div>
-              </>
-
-                
                 ) : (
-                  <>
+
+                  
+                
                     <Link to="/login" className="items-center flex">
                       Login
                     </Link>
-                    
-                  </>
                 )}
               </ul>
             </div>
@@ -106,7 +137,35 @@ const Navbar = ({ children }) => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
-            <NavItems />
+            <div className="flex gap-5 mr-3 items-center">
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "custom" : ""
+                }
+                to="/"
+              >
+                Home
+              </NavLink>
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "custom" : ""
+                }
+                to="/blogs"
+              >
+                Blogs
+              </NavLink>
+
+                
+  
+              <NavLink
+                className={({ isActive, isPending }) =>
+                  isPending ? "pending" : isActive ? "custom" : ""
+                }
+                to="/alljobs"
+              >
+                All Jobs
+              </NavLink>
+            </div>
           </ul>
         </div>
       </div>

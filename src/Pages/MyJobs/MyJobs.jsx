@@ -1,8 +1,10 @@
-import { useLoaderData } from "react-router-dom";
 import Myjob from "./Myjob/Myjob";
+import UseAuth from "../../hooks/UseAuth";
 
 const MyJobs = () => {
-    const myJobs = useLoaderData()
+    const {myJobs} = UseAuth();
+    console.log(myJobs);
+
   return (
     <div>
         {

@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../Navbar/NavItems.css"
 const NavItems = () => {
-  const navlinks = [""];
+const navlinks = [""]
   return (
     <>
     

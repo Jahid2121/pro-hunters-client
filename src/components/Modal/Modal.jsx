@@ -1,19 +1,15 @@
 import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
 import { useRef } from "react";
+import toast from "react-hot-toast";
 // import emailjs from '@emailjs/browser';
-const Modal = ({job}) => {
+const Modal = ({job, formattedDate}) => {
   const {userName} = UseAuth()
   const {
     _id,
     jobTitle,
-    loggedInUserName,
+    logoImage,
     jobCategory,
-    salaryRange,
-    jobDescription,
-    jobPostingDate,
-    applicationDeadline,
-    jobApplicantsNumber,
   } = job;
     const {user} = UseAuth()
     const sendEmail = useRef()
@@ -26,12 +22,18 @@ const Modal = ({job}) => {
         const appliedJob = {
             name: name,
             email: email,
-            resume: resume
+            jobTitle:jobTitle,
+            jobCategory:jobCategory,
+            AppliedDate: formattedDate,
+            logoImage:logoImage,
+            resume: resume,
+
         }
         console.log(appliedJob);
-        axios.post("https://pro-hunters-server.vercel.app/appliedJobs", appliedJob )
+        axios.post("http://localhost:5000/appliedJobs", appliedJob )
         .then(res => {
             console.log(res.data);
+            toast.success('Applied Successfully.')
           })
 
           // const templateParams = {
@@ -51,7 +53,7 @@ const Modal = ({job}) => {
     const handleIncrement = () => {
       // Increment jobApplicantsNumber and  on successful application submission
             axios
-            .patch(`https://pro-hunters-server.vercel.app/jobs/${_id}`)
+            .patch(`http://localhost:5000/jobs/${_id}`)
             .then((response) => {
               console.log(response.data);
             })
@@ -82,6 +84,7 @@ const Modal = ({job}) => {
                 type="text"
                 name="name"
                 defaultValue={userName}
+                disabled
                 
                 className="input input-bordered"
                 required

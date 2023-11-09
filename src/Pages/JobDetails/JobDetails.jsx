@@ -14,7 +14,6 @@ const JobDetails = () => {
 
   const currentDate = new Date();
   const formattedDate = formatDate(currentDate);
-  // console.log(formattedDate); 
 
   const [error, setError] = useState("");
   const { userName } = UseAuth();
@@ -85,7 +84,7 @@ const JobDetails = () => {
                 </button>
               ) :
                (
-                <Modal job={job} />
+                <Modal formattedDate={formattedDate} job={job} />
               )  }
             </div>
             <p className="text-xs text-customGray">

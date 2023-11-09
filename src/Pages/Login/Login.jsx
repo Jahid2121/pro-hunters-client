@@ -12,7 +12,7 @@ const Login = () => {
 
   const [success, setSuccess] = useState("");
   const location = useLocation()
-  const navigate = useNavigate()
+const navigate = useNavigate()
 
   const handleGoogleLogin = () => {
     googleLogin()
@@ -42,7 +42,7 @@ const Login = () => {
         const user = {email }
 
         // access token
-        axios.post('https://pro-hunters-server.vercel.app/jwt',user,
+        axios.post('http://localhost:5000/jwt',user,
          {withCredentials: true})
         .then(res => {
           console.log(res.data);

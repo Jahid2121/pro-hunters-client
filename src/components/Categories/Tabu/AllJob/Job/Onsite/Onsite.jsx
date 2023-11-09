@@ -5,7 +5,7 @@ import Job from "../Job";
 const Onsite = () => {
     const [Onsite, setOnsite] = useState()
     useEffect(()=> {
-        axios.get('https://pro-hunters-server.vercel.app/jobs?jobCategory=On%20Site')
+        axios.get('http://localhost:5000/jobs?jobCategory=On%20Site')
         .then(data => {
             setOnsite(data.data);
         })
