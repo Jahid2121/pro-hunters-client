@@ -1,33 +1,32 @@
 [
-    {
+  {
       "id": 1,
-      "title": "10 Tips for Successful Job Interviews",
-      "description": "Learn how to ace your job interviews with these valuable tips and strategies.",
+      "title": "What is an Access Token and Refresh Token?",
+      "description": "Learn about access tokens and refresh tokens, how they work, and where to store them on the client-side.",
       "imageUrl": "https://i.ibb.co/Tt6XBGq/lukas-blazek-Gnvurw-Js-Ka-Y-unsplash-1.jpg"
-    },
-    {
+  },
+  {
       "id": 2,
-      "title": "Writing an Effective Resume: Dos and Don’ts",
-      "description": "Discover the dos and don’ts of resume writing to make your resume stand out to employers.",
+      "title": "Introduction to Express.js",
+      "description": "Discover the basics of Express.js, a popular Node.js web application framework.",
       "imageUrl": "https://i.ibb.co/mq6vqz0/nik-73-k-Rzs9sqo-unsplash.jpg"
-    },
-    {
+  },
+  {
       "id": 3,
-      "title": "Networking Strategies for Job Seekers",
-      "description": "Build a strong professional network and enhance your job search with effective networking techniques.",
+      "title": "Exploring Nest.js",
+      "description": "Learn about Nest.js, a progressive Node.js framework for building efficient and scalable server-side applications. (Google it for more details!)",
       "imageUrl": "https://i.ibb.co/V3Hv9tp/alexandre-pellaes-6v-Ajp0psc-X0-unsplash.jpg"
-    },
-    {
+  },
+  {
       "id": 4,
-      "title": "Top 5 Job Search Websites You Should Know",
-      "description": "Explore the best job search websites to find relevant job opportunities tailored to your skills and preferences.",
+      "title": "Where to Store Tokens on the Client-Side",
+      "description": "Explore best practices for storing access tokens and refresh tokens on the client-side.",
       "imageUrl": "https://i.ibb.co/LRbd6qY/pexels-monstera-production-6373405.jpg"
-    },
-    {
+  },
+  {
       "id": 5,
-      "title": "Interview Follow-Up Etiquette: What You Need to Know",
-      "description": "Learn the proper etiquette for following up after a job interview and increase your chances of getting hired.",
+      "title": "Web Application Security: Tokens and Storage",
+      "description": "Learn about the security aspects of token storage on the client-side and best practices to keep your applications secure.",
       "imageUrl": "https://i.ibb.co/j8nWcKx/matthew-osborn-w-MRIc-T86-SWU-unsplash.jpg"
-    }
-  ]
-  
+  }
+]

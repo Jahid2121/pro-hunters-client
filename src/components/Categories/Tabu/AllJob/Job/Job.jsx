@@ -1,7 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import UseAuth from "../../../../../hooks/UseAuth";
-import { Toast } from "flowbite-react";
 import toast from "react-hot-toast";
+import { motion } from 'framer-motion';
 
 const Job = ({ job }) => {
   const {user} = UseAuth()
@@ -29,7 +29,7 @@ const Job = ({ job }) => {
 
   const shortendDeadline = applicationDeadline.slice(0, 10)
   return (
-    <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div onClick={handleNavigate} className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <a href="#">
         <img className="rounded-t-lg w-[350px]  h-60" src={bannerUrl} alt="" />
       </a>
@@ -48,7 +48,10 @@ const Job = ({ job }) => {
         <p className="text-gray-700 dark:text-gray-400">{salaryRange}</p>
         <p>Total Applicants : {jobApplicantsNumber}</p>
         {
-        user &&  <Link onClick={handleNavigate} to={`/jobDetails/${_id}`}
+        user && <motion.div
+        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+        whileTap={{ scale: 0.95 }}
+      >  <Link  to={`/jobDetails/${_id}`}
         className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-orange-700 rounded-lg hover:bg-orange-800 focus:ring-4 focus:outline-none focus:ring-orange-300 dark:bg-orange-600 dark:hover:bg-orange-700 dark:focus:ring-orange-800"
       >
         View Details
@@ -68,6 +71,7 @@ const Job = ({ job }) => {
           />
         </svg>
       </Link>
+      </motion.div>
        }
       </div>
     </div>

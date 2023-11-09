@@ -5,6 +5,7 @@ import { AuthContext } from "../../config/AuthProvider";
 import axios from "axios";
 import Myjob from "./Myjob/Myjob";
 import UseAuth from "../../hooks/UseAuth";
+import { Helmet } from "react-helmet-async";
 
 const MyJobs = () => {
 
@@ -25,6 +26,9 @@ const MyJobs = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>My Jobs</title>
+      </Helmet>
       <div className=" mt-32  items-start">
       <div className="overflow-x-auto ">
         <table className="table  ">
