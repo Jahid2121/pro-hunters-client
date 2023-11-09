@@ -1,24 +1,55 @@
-const Myjob = ({job}) => {
-    const {_id,bannerUrl,jobTitle,loggedInUserName,jobCategory,salaryRange,jobDescription,jobPostingDate,applicationDeadline,jobApplicantsNumber} = job;
+import axios from "axios";
+import Swal from "sweetalert2";
 
-    
+const Myjob = ({ job }) => {
+  const {
+    _id,
+    bannerUrl,
+    jobTitle,
+    loggedInUserName,
+    jobCategory,
+    salaryRange,
+    jobDescription,
+    jobPostingDate,
+    applicationDeadline,
+    jobApplicantsNumber,
+  } = job;
+  
+  const handleDelete = _id => {
+    console.log(_id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`http://localhost:5000/jobs/${_id}`, {
+          method: 'DELETE'
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          if(data.deletedCount > 0){
+
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success"
+            });
+          }
+        })
+
+      }
+    });
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="table">
-        {/* head */}
-        <thead>
-          <tr>
-            <th>
-              <label>
-                <input type="checkbox" className="checkbox" />
-              </label>
-            </th>
-            <th>Name</th>
-            <th>Job</th>
-            <th>Favorite Color</th>
-            <th></th>
-          </tr>
-        </thead>
         <tbody>
           {/* row 1 */}
           <tr>
@@ -29,12 +60,9 @@ const Myjob = ({job}) => {
             </th>
             <td>
               <div className="flex items-center space-x-3">
-                <div className="avatar">
-                  <div className="mask mask-squircle w-12 h-12">
-                    <img
-                      src="/tailwind-css-component-profile-2@56w.png"
-                      alt="Avatar Tailwind CSS Component"
-                    />
+                <div className="avatar w-40">
+                  <div className="rounded w-24 h-24">
+                    <img src={bannerUrl} alt="" />
                   </div>
                 </div>
                 <div>
@@ -50,9 +78,28 @@ const Myjob = ({job}) => {
                 Desktop Support Technician
               </span>
             </td>
-            <td>Purple</td>
+            <button
+            onClick={()=>handleDelete(_id)}
+            className="btn mt-9 bg-red-700 w-10 h-4 text-white  btn-square btn-outline">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
             <th>
-              <button className="btn btn-ghost btn-xs">details</button>
+              <button className="btn btn-ghost bg-customOrange text-white btn-xs">
+                Update
+              </button>
             </th>
           </tr>
         </tbody>

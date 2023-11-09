@@ -1,15 +1,62 @@
+import { useEffect } from "react";
+import { useState } from "react";
+import { useContext } from "react";
+import { AuthContext } from "../../config/AuthProvider";
+import axios from "axios";
 import Myjob from "./Myjob/Myjob";
 import UseAuth from "../../hooks/UseAuth";
 
 const MyJobs = () => {
-    const {myJobs} = UseAuth();
-    console.log(myJobs);
+
+
+  const { userName } = UseAuth()
+  const [myJobs, setMyJobs] = useState([]);
+  console.log(myJobs);
+
+  const url = `http://localhost:5000/jobs?loggedInUserName=${userName}`;
+  useEffect(() => {
+
+      axios.get(url)
+      .then(res => {
+        setMyJobs(res.data);
+      })
+
+  }, [url]);
 
   return (
     <div>
-        {
+      <div className=" mt-32  items-start">
+      <div className="overflow-x-auto ">
+        <table className="table  ">
+          {/* head */}
+          <thead  className="text-black">
+            <tr>
+                <hr />
+                <div className="w-full  text-center flex justify-center items-center mx-auto  gap-8">
+            <th></th>
+            
+              <th className=" grow text-xl">Product</th>
+              <th className="text-xl ">Price</th>
+              
+                </div>
+            </tr>
+          </thead>
+          <tbody>
+
+          {
             myJobs?.map(job => <Myjob key={job._id} job={job}></Myjob>)
         }
+</tbody>
+
+</table>
+</div>
+
+</div>
+
+
+
+          
+        
     </div>
   );
 };

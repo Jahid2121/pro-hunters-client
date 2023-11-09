@@ -39,11 +39,11 @@ const navigate = useNavigate()
       .then((result) => {
         const loggedInUser = result.user;
         console.log(loggedInUser);
-        const user = {email }
+        const user = { email }
 
         // access token
-        axios.post('http://localhost:5000/jwt',user,
-         {withCredentials: true})
+        axios.post('http://localhost:5000/jwt',user,{withCredentials: true})
+        
         .then(res => {
           console.log(res.data);
           if(res.data.success){
@@ -71,6 +71,7 @@ const navigate = useNavigate()
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
+                <span className="label-text">Name</span>
               </label>
               <input
                 type="email"
