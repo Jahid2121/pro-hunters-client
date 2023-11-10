@@ -28,7 +28,7 @@ const Myjob = ({ job }) => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs/${_id}`, {
+        fetch(`https://pro-hunters-server-six.vercel.app/jobs/${_id}`, {
           method: "DELETE",
         })
           .then((res) => res.json())

@@ -12,7 +12,7 @@ const AppliedJobs = () => {
     const { user } = useContext(AuthContext);
     const [appliedJobs, setAppliedJobs] = useState([]);
 
-    const url = `https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/appliedJobs?email=${user?.email}`;
+    const url = `https://pro-hunters-server-six.vercel.app/appliedJobs?email=${user?.email}`;
     useEffect(() => {
 
         axios.get(url, {withCredentials: true})

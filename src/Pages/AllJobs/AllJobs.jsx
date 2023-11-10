@@ -14,19 +14,19 @@ const AllJobs = () => {
 
     useEffect(() => {
         if(filter === "remote"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=remote')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=remote')
             .then(data => setDisplay(data.data))
         }
         else if(filter === "hybrid"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=hybrid')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=hybrid')
             .then(data => setDisplay(data.data))
         }
         else if(filter === "part time" || filter === "parttime"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=part time')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=part time')
             .then(data => setDisplay(data.data))
         }
         else if(filter === "on site" || filter === "onsite"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=on site')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=on site')
             .then(data => setDisplay(data.data))
         }
 

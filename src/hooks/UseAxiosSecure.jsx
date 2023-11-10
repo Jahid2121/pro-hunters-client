@@ -5,7 +5,7 @@ import auth from "../config/firebase.cofig";
 import { useNavigate } from "react-router-dom";
 
 const axisoSecure = axios.create({
-  baseURL: "https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/",
+  baseURL: "https://pro-hunters-server-six.vercel.app/",
   withCredentials: true,
 });
 

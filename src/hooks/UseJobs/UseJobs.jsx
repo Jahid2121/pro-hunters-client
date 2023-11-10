@@ -4,7 +4,7 @@ const UseJobs = () => {
     const {isPending, isError, error, data: allJobs} = useQuery({
         queryKey: ['allJob'],
         queryFn: async () => {
-            const res = await fetch('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs')
+            const res = await fetch('https://pro-hunters-server-six.vercel.app/jobs')
          return res.json()
         }
     })

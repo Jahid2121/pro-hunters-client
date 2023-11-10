@@ -13,19 +13,19 @@ const AllJob = ({active, jobCategory}) => {
     const [renderedJobs, setRenderedJobs] = useState()
     useEffect(() => {
         if(jobCategory === "remote"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=remote')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=remote')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "hybrid"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=hybrid')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=hybrid')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "part time"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=part time')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=part time')
             .then(data => setRenderedJobs(data.data))
         }
         else if(jobCategory === "on site" || jobCategory === "onsite"){
-            axios.get('https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs?jobCategory=onsite')
+            axios.get('https://pro-hunters-server-six.vercel.app/jobs?jobCategory=onsite')
             .then(data => setRenderedJobs(data.data))
         }
     },[active, jobCategory])

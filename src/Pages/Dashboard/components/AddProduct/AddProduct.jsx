@@ -64,7 +64,7 @@ const AddProduct = () => {
       jobApplicantsNumber: jobApplicantsNumber,
     };
     console.log(job);
-    axios.post("https://pro-hunters-server-m77bccise-jahids-projects-c60982d1.vercel.app/jobs", job)
+    axios.post("https://pro-hunters-server-six.vercel.app/jobs", job)
     .then(res => {
       const data = res.data;
       console.log(data);
