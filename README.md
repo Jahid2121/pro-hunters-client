@@ -1,6 +1,6 @@
 # Pro Hunters Website
 ## Overview
-The JobSeeker website is a full-stack job-seeking platform built using React, Tailwind CSS, DaisyUI, Flowbite, and firebase. It allows users to explore jobs by category, apply for positions, and manage their own job postings.
+The Pro Hunters website is a full-stack job-seeking platform built using React, Tailwind CSS, DaisyUI, Flowbite, and firebase. It allows users to explore jobs by category, apply for positions, and manage their own job postings.
 
 
 * ### live demo here - https://pro-hunters.web.app
