@@ -8,7 +8,7 @@ import Dashboard from "../Pages/Dashboard/Dashboard";
 import ErrorPage from "../Pages/ErrorPage/ErrorPage";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
-import AddProduct from "../Pages/Dashboard/components/AddProduct/AddProduct";
+import AddJobs from "../Pages/Dashboard/components/AddProduct/AddJobs";
 import JobDetails from "../Pages/JobDetails/JobDetails";
 import AppliedJobs from "../Pages/AppliedJobs/AppliedJobs";
 import ProtectedRoutes from "./ProtectedRoutes/ProtectedRoutes";
@@ -41,7 +41,7 @@ const {userName} = UseAuth;
         {
           path: "/jobDetails/:id",
           element: <ProtectedRoutes><JobDetails></JobDetails></ProtectedRoutes>,
-          loader: ({params}) => fetch(`https://pro-hunters-server-six.vercel.app/jobs/${params.id}`)
+          loader: ({params}) => fetch(`http://localhost:5000/jobs/${params.id}`)
         },
         {
           path: "allJobs",
@@ -61,7 +61,7 @@ const {userName} = UseAuth;
         children: [
           {
             path: "addJob",
-            element: <AddProduct></AddProduct>
+            element: <AddJobs></AddJobs>
           },
           
           {

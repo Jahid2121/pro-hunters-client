@@ -14,7 +14,7 @@ const MyJobs = () => {
   const [myJobs, setMyJobs] = useState([]);
   console.log(myJobs);
 
-  const url = `https://pro-hunters-server-six.vercel.app/jobs?loggedInUserName=${userName}`;
+  const url = `http://localhost:5000/jobs?loggedInUserName=${userName}`;
   useEffect(() => {
 
       axios.get(url)

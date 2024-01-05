@@ -1,5 +1,5 @@
 import axios from "axios";
-import "../AddProduct/AddProduct.css";
+import "../AddProduct/AddJobs.css";
 import  { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 
@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 
 
-const AddProduct = () => {
+const AddJobs = () => {
   const {logo, userName} = UseAuth()
   const [startDate, setStartDate] = useState(new Date());
   const [formattedDate, setFormattedDate] = useState(null);
@@ -25,7 +25,7 @@ const AddProduct = () => {
     const day = String(date.getDate()).padStart(2, '0');
     const month = String(date.getMonth() + 1).padStart(2, '0');
     const year = date.getFullYear();
-    return `${month}/${day}/${year}`;
+    return `${day}/${month}/${year}`;
   }
 
   
@@ -64,7 +64,7 @@ const AddProduct = () => {
       jobApplicantsNumber: jobApplicantsNumber,
     };
     console.log(job);
-    axios.post("https://pro-hunters-server-six.vercel.app/jobs", job)
+    axios.post("http://localhost:5000/jobs", job)
     .then(res => {
       const data = res.data;
       console.log(data);
@@ -210,6 +210,7 @@ const AddProduct = () => {
           <DatePicker
            selected={startDate}
            name="applicationDeadline"
+           dateFormat="dd/MM/yyyy"
           //  minDate={new Date()}
             onChange={(date) => setStartDate(date)}
           />
@@ -229,7 +230,7 @@ const AddProduct = () => {
 
         <div className="form-control mt-6">
           <button type="submit" className="btn bg-customOrange text-white">
-            Add Product
+            Add Jobs
           </button>
         </div>
       </form>
@@ -237,4 +238,4 @@ const AddProduct = () => {
   );
 };
 
-export default AddProduct;
+export default AddJobs;

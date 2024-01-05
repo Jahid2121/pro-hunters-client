@@ -9,11 +9,12 @@ const JobDetails = () => {
     const day = String(date.getDate()).padStart(2, "0");
     const month = String(date.getMonth() + 1).padStart(2, "0");
     const year = date.getFullYear();
-    return `${month}/${day}/${year}`;
+    return `${day}/${month}/${year}`;
   }
 
   const currentDate = new Date();
   const formattedDate = formatDate(currentDate);
+  console.log(formattedDate);
 
   const [error, setError] = useState("");
   const { userName } = UseAuth();
@@ -57,7 +58,7 @@ const JobDetails = () => {
   return (
     <div>
       <div className="flex flex-col mx-auto items-center   ">
-        <img className="w-[900px]" src={bannerUrl} alt="" />
+        <img className="w-[900px] h-[700px]" src={bannerUrl} alt="" />
       </div>
       <div className=" min-h-screen flex flex-col mx-auto top-16 w-[900px] h-[1000px]">
         <div className="flex ">

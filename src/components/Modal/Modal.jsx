@@ -30,7 +30,7 @@ const Modal = ({job, formattedDate}) => {
 
         }
         console.log(appliedJob);
-        axios.post("https://pro-hunters-server-six.vercel.app/appliedJobs", appliedJob )
+        axios.post("http://localhost:5000/appliedJobs", appliedJob )
         .then(res => {
             console.log(res.data);
             toast.success('Applied Successfully.')
@@ -53,7 +53,7 @@ const Modal = ({job, formattedDate}) => {
     const handleIncrement = () => {
       // Increment jobApplicantsNumber and  on successful application submission
             axios
-            .patch(`https://pro-hunters-server-six.vercel.app/jobs/${_id}`)
+            .patch(`http://localhost:5000/jobs/${_id}`)
             .then((response) => {
               console.log(response.data);
             })
