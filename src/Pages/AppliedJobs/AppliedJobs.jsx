@@ -4,12 +4,10 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useState } from "react";
 import UseAuth from "../../hooks/UseAuth";
-import { useContext } from "react";
-import { AuthContext } from "../../config/AuthProvider";
 import { Helmet } from "react-helmet-async";
 const AppliedJobs = () => {
     // const { isError, error, appliedJobs} = UseAppliedJobs()
-    const { user } = useContext(AuthContext);
+    const { user } = UseAuth();
     const [appliedJobs, setAppliedJobs] = useState([]);
 
     const url = `https://pro-hunters-server-six.vercel.app/appliedJobs?email=${user?.email}`;
