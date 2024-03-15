@@ -2,7 +2,6 @@ import axios from "axios";
 import UseAuth from "../../hooks/UseAuth";
 import { useRef } from "react";
 import toast from "react-hot-toast";
-// import emailjs from '@emailjs/browser';
 const Modal = ({job, formattedDate}) => {
   const {userName} = UseAuth()
   const {
@@ -36,17 +35,7 @@ const Modal = ({job, formattedDate}) => {
             toast.success('Applied Successfully.')
           })
 
-          // const templateParams = {
-          //   email_to: 'jahidhasan20u@gmail.com', // Replace this with the actual recipient's email address
-          //   // ... other template parameters
-          // };
-
-      //     emailjs.sendForm('service_ut9ajug', 'template_aayrs7s', templateParams, 'ksdc3y5Y5pnwnthEu')
-      // .then((result) => {
-      //     console.log(result.text);
-      // }, (error) => {
-      //     console.log(error.text);
-      // });
+          
           
     }
 

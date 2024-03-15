@@ -1,15 +1,26 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
 import { useState } from "react";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { updateProfile } from "firebase/auth";
 const Register = () => {
-  const { newUser } = UseAuth();
+  const { newUser, googleLogin } = UseAuth();
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [ShowPassword, setShowPassword] = useState(false)
+  const navigate = useNavigate()
   
+  const handleGoogleLogin = () => {
+    googleLogin()
+    .then(result => {
+      console.log(result.user);
+      navigate(location?.state ? location.state : '/')
+    })
+    .catch(error => {
+      console.error(error);
+    })
+  }
 
   const handleRegister = (e) => {
     e.preventDefault();
@@ -56,11 +67,11 @@ const Register = () => {
 
   return (
     <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col-reverse gap-8 lg:flex-row">
+      <div className="hero-content flex-col-reverse  lg:flex-row">
         <div className="mt-36">
-          <img className="w-[500px] " src={img} alt="" />
+          <img className="w-[700px] " src={img} alt="" />
         </div>
-        <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+        <div className="card flex-shrink-0 w-full max-w-xl shadow-2xl bg-base-100">
           <form onSubmit={handleRegister} className="card-body">
             <h2 className="text-center font-bold text-2xl">Register</h2>
             <div className="form-control">
@@ -127,6 +138,17 @@ const Register = () => {
             </span>
               </div>
             </div>
+             <span onClick={handleGoogleLogin}>
+  <button className='hover:bg-gradient-to-r from-blue-500 via-green-500 to-red-500 flex items-center gap-4 p-3 mt-8 mr-5 border text-2xl w-14 rounded-full'>
+    <img src="https://i.ibb.co/ydH0LHr/google.png" alt="" /> 
+    <span style={{color: '#4285F4'}}>G</span>
+    <span style={{color: '#EA4335'}}>o</span>
+    <span style={{color: '#FBBC05'}}>o</span>
+    <span style={{color: '#4285F4'}}>g</span>
+    <span style={{color: '#34A853'}}>l</span>
+    <span style={{color: '#EA4335'}}>e</span>
+  </button>
+</span>
             <div className="form-control mt-6">
               <input
                 className="btn bg-customOrange border-0 text-white"

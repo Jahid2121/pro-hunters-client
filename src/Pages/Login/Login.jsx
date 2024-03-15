@@ -3,7 +3,6 @@ import img from "../../assets/Pictures/login.svg";
 import UseAuth from "../../hooks/UseAuth";
 import { useState } from "react";
 import axios from "axios";
-import { AiOutlineGoogle } from "react-icons/ai";
 
 
 const Login = () => {
@@ -60,10 +59,10 @@ const navigate = useNavigate()
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
-      <div className="hero-content flex-col gap-8 lg:flex-row-reverse">
+    <div className="hero min-h-screen  bg-base-200">
+      <div className="hero-content flex-col ml-28 gap-8 lg:flex-row-reverse">
         <div className="mt-36">
-          <img className="w-[500px] " src={img} alt="" />
+          <img className="w-[700px] " src={img} alt="" />
         </div>
         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
           <form onSubmit={handleLogin} className="card-body">
@@ -71,12 +70,11 @@ const navigate = useNavigate()
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
-                <span className="label-text">Name</span>
               </label>
               <input
                 type="email"
                 name="email"
-                defaultValue={"micro@soft.com"}
+                // defaultValue={"micro@soft.com"}
                 placeholder="email"
                 className="input input-bordered"
                 required
@@ -88,7 +86,7 @@ const navigate = useNavigate()
               </label>
               <input
                 type="password"
-                defaultValue={"micro@soft.com"}
+                // defaultValue={"micro@soft.com"}
                 name="password"
                 placeholder="password"
                 className="input input-bordered"
@@ -99,7 +97,17 @@ const navigate = useNavigate()
                   Forgot password?
                 </a>
               </label>
-              <span onClick={handleGoogleLogin}><button className='hover:bg-custom-yellow p-3 mt-8 mr-5 border text-2xl rounded-full'><AiOutlineGoogle/> </button></span>
+              <span onClick={handleGoogleLogin}>
+  <button className='hover:bg-gradient-to-r from-blue-500 via-green-500 to-red-500 flex items-center gap-4 p-3 mt-8 mr-5 border text-2xl w-14 rounded-full'>
+    <img src="https://i.ibb.co/ydH0LHr/google.png" alt="" /> 
+    <span style={{color: '#4285F4'}}>G</span>
+    <span style={{color: '#EA4335'}}>o</span>
+    <span style={{color: '#FBBC05'}}>o</span>
+    <span style={{color: '#4285F4'}}>g</span>
+    <span style={{color: '#34A853'}}>l</span>
+    <span style={{color: '#EA4335'}}>e</span>
+  </button>
+</span>
               {error && (
                 <p className="text-red-950  flex items-center first-letter:text-5xl">
                   <span className="h-5 w-5 rounded-full text-2xl ">!</span>{" "}

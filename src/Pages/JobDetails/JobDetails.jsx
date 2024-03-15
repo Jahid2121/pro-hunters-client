@@ -14,7 +14,6 @@ const JobDetails = () => {
 
   const currentDate = new Date();
   const formattedDate = formatDate(currentDate);
-  console.log(formattedDate);
 
   const [error, setError] = useState("");
   const { userName } = UseAuth();

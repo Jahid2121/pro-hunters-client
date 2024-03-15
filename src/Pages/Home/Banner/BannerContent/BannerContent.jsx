@@ -8,7 +8,7 @@ const BannerContent = () => {
       </p>
 
       <div className="rounded-full pl-0 md:pl-3  bg-white">
-      <input className="p-1" type="search" name="" id="" placeholder="Job title or keyword" />
+      <input className="p-1 border-none" type="search" name="" id="" placeholder="Job title or keyword" />
       <button className="px-3 py-1 rounded-full bg-customOrange text-white">Search</button>
       </div>
     </div>

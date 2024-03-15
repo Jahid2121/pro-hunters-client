@@ -8,6 +8,7 @@ import axios from "axios";
 const AllJob = ({active, jobCategory}) => {
     
     
+    
 
     const {isPending, isError, error, allJobs} = UseJobs()
     const [renderedJobs, setRenderedJobs] = useState()

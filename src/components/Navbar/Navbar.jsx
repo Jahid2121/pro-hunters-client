@@ -3,6 +3,7 @@ import Footer from "../Footer/Footer";
 import UseAuth from "../../hooks/UseAuth";
 import { Link, NavLink } from "react-router-dom";
 import "../Navbar/NavItems.css";
+import { AiOutlineLogin } from "react-icons/ai";
 const Navbar = ({ children }) => {
   const { user, logOut, logo, userName } = UseAuth();
 
@@ -116,8 +117,8 @@ const Navbar = ({ children }) => {
 
                   
                 
-                    <Link to="/login" className="items-center bg-custom-Pink-light text-white text-base font-medium  rounded-sm p-3 bg-orange-500 flex">
-                      Login
+                    <Link to="/login" className="items-center bg-custom-Pink-light  font-medium  rounded-sm p-3 text-orange-500 text-xl flex">
+                     <AiOutlineLogin /> Login
                     </Link>
                 )}
               </ul>
