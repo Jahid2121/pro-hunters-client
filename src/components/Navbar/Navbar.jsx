@@ -4,6 +4,7 @@ import UseAuth from "../../hooks/UseAuth";
 import { Link, NavLink } from "react-router-dom";
 import "../Navbar/NavItems.css";
 import { AiOutlineLogin } from "react-icons/ai";
+import CustomNavLink from "../CustomNavLink/CustomNavLink";
 const Navbar = ({ children }) => {
   const { user, logOut, logo, userName } = UseAuth();
 
@@ -82,14 +83,14 @@ const Navbar = ({ children }) => {
                 </div>
                 {user ? (
                   <div className="flex items-center gap-2">
-                    <NavLink 
+                    <CustomNavLink 
                   className={({ isActive, isPending }) =>
                     isPending ? "pending" : isActive ? "custom" : ""
                   }
                   to="/dashboard"
                 >
                   Dashboard
-                </NavLink> 
+                </CustomNavLink> 
                     <li
                       className="bg-custom-Pink-light text-white text-base font-medium items-center rounded-sm"
                       onClick={handleLogOut}

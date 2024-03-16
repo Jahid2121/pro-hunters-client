@@ -77,7 +77,7 @@ const AddJobs = () => {
 
   return (
     <div>
-      <h2 className="text-center my-9 font-bold text-4xl text-customOrange">Add a Product</h2>
+      <h2 className="text-center my-9 font-bold text-4xl text-customOrange">Add a Job</h2>
       <form onSubmit={handleAddProduct} className="card-body">
 
         {/* name */}

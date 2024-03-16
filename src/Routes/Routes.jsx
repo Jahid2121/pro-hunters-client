@@ -17,6 +17,7 @@ import AllJobs from "../Pages/AllJobs/AllJobs";
 import Blogs from "../Pages/Blogs/Blogs";
 import UseAuth from "../hooks/UseAuth";
 import UpdateJob from "../Pages/UpdateJob/UpdateJob";
+import Profile from "../Pages/Profile/Profile";
 const {userName} = UseAuth;
 
 
@@ -59,6 +60,10 @@ const {userName} = UseAuth;
         path: "/dashboard",
         element: <Dashboard ></Dashboard>,
         children: [
+          {
+            path: "/dashboard",
+            element: <Profile></Profile>
+          },
           {
             path: "addJob",
             element: <AddJobs></AddJobs>

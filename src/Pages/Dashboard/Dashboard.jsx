@@ -1,9 +1,12 @@
 import { NavLink, Outlet } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
-import { Toaster } from "react-hot-toast";
 import "../../components/Navbar/NavItems.css"
+import { FaHome } from "react-icons/fa";
+import CustomNavLink from "../../components/CustomNavLink/CustomNavLink";
+
+
 const Dashboard = () => {
-  let isAdmin = true
+  let isAdmin = true;
   return (
     <>
     
@@ -31,43 +34,17 @@ const Dashboard = () => {
               {isAdmin ? 
                 <>
                   {/* admin */}
-                  <NavLink className="flex items-center gap-3" to="/dashboard">
-                      {/* <FaHome /> */}
+                  <CustomNavLink className="flex items-center gap-3" to="/dashboard">
+                      <FaHome />
                     Admin Profile
-                  </NavLink>
-                  <NavLink
-                    className="flex items-center gap-3"
-                    to="/dashboard/users"
-                  > 
-                  {/* <FaUsers /> */}
-                    Manage User
-                  </NavLink>
-                  <NavLink
-                    className="flex items-center gap-3"
-                    to="/dashboard/addMeal"
-                  >
-                    {/* <FaUtensilSpoon /> */}
-                    Add Meal
-                  </NavLink>
-                  <NavLink
-                    className="flex items-center gap-3"
-                    to="/dashboard/allMeals"
-                  >
-                    {/* <FaUtensils /> */}
-                    All Meals
-                  </NavLink>
-                  <NavLink
-                    className="flex items-center gap-3"
-                    to="/dashboard/allReviews"
-                  >
-                    All Reviews
-                  </NavLink>
-                  <NavLink
-                    className="flex items-center gap-3"
-                    to="/dashboard/allReqMeals"
-                  >
-                    Serve Meal
-                  </NavLink>
+                  </CustomNavLink>
+                  <CustomNavLink
+                    to={"/dashboard/addJob"}
+                    >{"Add Job"}</CustomNavLink>
+                  <CustomNavLink
+                    to={"/dashboard/myJobs"}>{"My Jobs"}</CustomNavLink>
+                  
+                  
                 </>
                : 
                 <>
@@ -81,13 +58,12 @@ const Dashboard = () => {
                 </>
               }
             </div>
-            <div className="col-span-9 text-center pt-20 bg-Salmon">
+            <div className="col-span-9 text-center  ">
               <Outlet />
             </div>
           </div>
         </div>
         <div>
-        <Outlet></Outlet>
         </div>
         </div>
       </Navbar>
