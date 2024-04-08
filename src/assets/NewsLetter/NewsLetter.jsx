@@ -1,9 +1,17 @@
+import { useState } from "react";
 import toast from "react-hot-toast";
 
 const NewsLetter = () => {
+  const [isSubscribe, setIsSubscribe] = useState()
   const handleSubscribe = () => {
     // Handle subscription logic here
-    toast.success('Thank you for subscribing!');
+    if(isSubscribe) {
+      toast.error("Already subscribed")
+    }
+    else {
+      toast.success('Thank you for subscribing!');
+    setIsSubscribe(true)
+    }
   };
 
   return (
@@ -15,7 +23,9 @@ const NewsLetter = () => {
           className="bg-white text-orange-500 hover:bg-yellow-500 hover:text-white py-2 px-4 rounded-full cursor-pointer transition duration-300"
           onClick={handleSubscribe}
         >
-          Subscribe
+          {
+            isSubscribe ? "Subscribed" : "Subscribe"
+          }
         </button>
       </div>
     </div>

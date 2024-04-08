@@ -137,7 +137,7 @@ const Navbar = ({ children }) => {
           ></label>
           <ul className="menu p-4 w-80 min-h-full bg-base-200">
             {/* Sidebar content here */}
-            <div className="flex gap-5 mr-3 items-center">
+            <div className="flex flex-col mt-10 gap-5 mr-3 items-center">
               <NavLink
                 className={({ isActive, isPending }) =>
                   isPending ? "pending" : isActive ? "custom" : ""

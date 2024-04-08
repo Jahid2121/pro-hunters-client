@@ -56,11 +56,11 @@ const JobDetails = () => {
 
   return (
     <div>
-      <div className="flex flex-col mx-auto items-center   ">
-        <img className="w-[900px] h-[700px]" src={bannerUrl} alt="" />
+      <div className="flex flex-row md:flex-col mx-auto items-center   ">
+        <img className="md:w-[800px] md:h-[600px]  w-72 h-72" src={bannerUrl} alt="" />
       </div>
       <div className=" min-h-screen flex flex-col mx-auto top-16 w-[900px] h-[1000px]">
-        <div className="flex ">
+        <div className="flex flex-col md:flex-row">
           <div className="flex flex-grow relative">
             <img className="w-32  h-32" src={logoImage} alt="" />
             <p className="mt-5  left-32 absolute rounded-lg text-customOrange p-1 bg-orange-100">
